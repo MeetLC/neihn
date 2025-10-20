@@ -1,10 +1,10 @@
 /*==== Brand palette ====*/
 :root{
-    --gold: #ffd700;
-    --deep-red: #8b0000;
-    --light: #f8f8f8f8;
-    --dark-text: #222;
-    --grad: linear-gradient(90deg,#ffd700,#ff4500);
+    --gold: #F2B705;
+    --deep-red: #8C0303;
+    --light: #F2F2F2;
+    --dark-text: #0D0000;
+    --grad: linear-gradient(90deg,#F2B705,#ff4500);
 }
 
 /* Base*/
@@ -30,9 +30,7 @@ nav {
 }
 
 .logo {
-    color: var(--gold);
-    font-size: 2rem;
-    font-weight: bold;
+    width: 60px;
 }
 
 nav ul {
