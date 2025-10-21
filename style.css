@@ -89,8 +89,11 @@ nav ul li a:hover{
 }
 
 .hero-logo {
+    width: clamp(160px, 35vw, 360px);
     max-width: 360px;
-    margin-bottom: 1.5rem;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem;
 }
 
 .hero h2 {
@@ -196,3 +199,16 @@ section {
     animation: fadeInUp 1s ease forwards;
 }
 
+@media (max-width: 600px){
+    .hero {
+        padding: 3.5rem 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav {
+        backdrop-filter: blur(6px);
+    }
+}
