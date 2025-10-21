@@ -12,21 +12,36 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body {
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     margin:0;
     font-family: "Poppins", sans-serif;
     background-color: var(--light);
     color: var(--dark-text);
     line-height: 1.6;
+    padding-top: 72px;
 }
 
 /* ===== Navigation =====*/
 nav {
     display: flex;
+    box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
     background: var(--deep-red);
     padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
 .logo {
