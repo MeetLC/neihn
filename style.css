@@ -96,7 +96,7 @@ nav ul li a:hover{
     margin: 0 auto 1.5rem;
 }
 
-.hero h2 {
+.hero h1 {
     font-size: 2rem;
     color: var(--gold);
 }
