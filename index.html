@@ -21,6 +21,22 @@
         <link rel="icon" type="image/webp" href="img/Neihn-icon.webp">
         <title>Neihn - Portifólio de Luiz Carmo</title>
         <link rel="stylesheet" href="style.css"/>
+        <script type="application/id+json">
+            {S
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Luiz Carmo",
+                "url": "https://neihn.pages.dev",
+                "jobTitle": "Web Designer",
+                "description": "Portfólio de Luiz Carmo - web designer apaixonado, criando sites bonitos, rápidos e acessíveis.",
+                "image": "https://neihn.pages.dev/img/neihn-preview.webp",
+                "sameAs": [
+                    "https://www.behance.net/MeetLC",
+                    "https://www.linkedin.com/in/meetlc",
+                    "https://www.github.com/MeetLC"
+                ]
+            }
+        </script>
     </head>
     <body>
         <header id="home">
@@ -92,6 +108,34 @@
                     <button type="submit">Enviar Mensagem</button>
                 </form>
             </section>
+            <script>
+            const form = document.getElementById('contactForm');
+            const statusEL = document.getElementById('formStatus');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                statusEL.TextyContent = 'Enviando...';
+
+                try {
+                    const resp = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (resp.ok) {
+                        form.reset();
+                        statusEl.textContent = 'Mensagem enviada com sucesso! Obrigado';
+                    } else {
+                        statusEl.textContent = 'Não foi possível enviar. Tente novamente.';
+                    }
+                } catch (error) {
+                    statusEL.textContent = 'Erro de conexão. Verifique sua internet.';
+                }
+            });
+        </script>
         </main>
         <!--
         <script>
