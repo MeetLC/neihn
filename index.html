@@ -1,67 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+    <!-- Head Section-->
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="description" content="Z Designer - bold design, clean code. Portifolio and contact for Luiz Carmo, web designer.">
-        <title>Z Designer</title>
+        <meta name="description" content="Neihn - portifólio de Luiz Carmo - web designer criativo,
+         criando sites rápidos, bonitos e acessíveis.">
+        <!-- Open Graph / Social Meta -->
+        <meta property="og:title" content="Neihn - Portfólio de Luiz Carmo">
+        <meta property="og:description" content="Design que inspira. Construindo ideias, um pixel de cada vez.">
+        <meta property="og:image" content="https://neihn.netlify.app">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Neihn - Portifólio de Luiz Carmo">
+        <meta name="twitter:description" content="Design que inspira. Construindo ideias, um pixel de cada vez.">
+        <meta property="twitter:image" content="https://neihn.netlify.app/img/neihn-preview.webpp">
+        <link rel="icon" type="image/webp" href="img/Neihn-icon.webp">
+        <title>Neihn - Portifólio de Luiz Carmo</title>
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
         <header id="home">
+            <!-- Nav Bar -->
             <nav>
-                <img src="img/Z Logo Official icon.webp" alt="Z Logo" class="logo">
+                <img src="img/Neihn-icon.webp" alt="Neihn Logo" class="logo">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#contact">Contato</a></li>
                 </ul>
             </nav>
-
-            <section class="hero">
-                <img class="hero-logo" src="img/Z-360.webp" srcset="img/Z-180.webp 180w, img/Z-220.webp 220w, img/Z-360.webp 360w" sizes="(max-width: 600px) 220px, 360px" width="360" height="360" alt="Z Dezigner gold monogram logo">
-                <h1>Bold Design, Clean Code</h1>
-                <p>Rebuilding creativity - one pixel at a time</p>
-                <a href="#portifolio" class="btn">View My Work</a>
+            
+            <!-- hero Section -->
+            <section class="hero" id="home">
+                <img class="hero-logo" src="img/Neihn360.webp" 
+                srcset="img/Neihn180.webp 180w, img/Neihn220.webp 220w, img/Neihn360.webp 360w" 
+                sizes="(max-width: 600px) 220px, 360px" width="360" height="360" 
+                alt="Logotipo dourado Z Designer">
+                <h2>Design que inspira.</h2>
+                <p>Construindo ideias, um pixel de cada vez.</p>
+                <a href="#portifolio" class="btn">Meus trabalhos</a>
             </section>
         </header>
         
+        <!-- Main Section -->
         <main>
             <section id="about">
-                <h2>About Me</h2>
-                <p>
-                    I'm Luiz Carmo - a passionate web designer rediscovering the art of crafting poweful, beautiful websites that inspire and perform.
-                </p>
+                <h2>Sobre</h2>
+                <p>Sou Luiz Carmo - web designer apaixonado, criando sites bonitos, rápidos e acessíveis.</p>
             </section>
 
             <section id="portfolio">
-                <h2>Portfolio</h2>
-                <p>
-                    Coming soon - my new creations!
-                </p>
-                <!--
+                <h2>Portfólio</h2>
+                <p>Alguns projetos em destaque:</p>
+                
                 <div class="grid">
-                    <article class="card">Project 1 (placeholder)</article>
-                    <article class="card">Project 2 (placeholder)</article>
-                    <article class="card">Project 3 (placeholder)</article>
+                    <article class="card">
+                        <a class="card-link" href="project-1.html" aria-label="Abrir: Landing Page - Conceito">
+                        <img src="img/project1.webp" alt="Prévia do Projeto 1" loading="lazy">
+                        <div class="card-body">
+                        <h3>Landing Page - Conceito</h3>
+                        <p class="tags">UI . HTML . CSS</p>
+                        <span class="btn-small">Ver<span>
+                        </div>    
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <a class="card-link" href="project-2.html" aria-label="Abrir: Logo & Identidade Visual">
+                        <img src="img/project2.webp" alt="Prévia do Projeto 2" loading="lazy">
+                        <div class="card-body">
+                        <h3>Logo & Identidade Visual</h3>
+                        <p class="tags">Branding . Illustrator</p>
+                        <spam class="btn-small">Ver</spam>
+                        </div>
+                        </a>
+                    </article>
                 </div>
-                -->
             </section>
 
             <section id="contact">
-                <h2>Contact</h2>
+                <h2>Contato</h2>
                 <form name="contact" method="POST" data-netlify="true">
-                    <input type="text" name="name" placeholder="Your name" required/>
-                    <input type="email" name="email" placeholder="Your email" required/>
-                    <textarea name="message" placeholder="Your message" required></textarea>
-                    <button type="submit">Send Message</button>
+                    <input type="text" name="name" placeholder="Seu nome" required>
+                    <input type="email" name="email" placeholder="Seu e-mail" required>
+                    <textarea name="message" placeholder="Sua menssagem" required></textarea>
+                    <button type="submit">Enviar Mensagem</button>
                 </form>
             </section>
         </main>
         
+        <!-- Footer Section -->
         <footer>
-            <p>© 2025 Z Designer | Crafted with passion</p>
+            <p>© 2025 Neihn - Feito com paixão</p>
         </footer>
     </body>
 </html>

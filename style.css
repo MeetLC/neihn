@@ -1,10 +1,10 @@
 /*==== Brand palette ====*/
 :root{
-    --gold: #F2B705;
-    --deep-red: #8C0303;
+    --gold: #f5b300;
+    --deep-red: #6e0101;
     --light: #F2F2F2;
     --dark-text: #0D0000;
-    --grad: linear-gradient(90deg,#F2B705,#ff4500);
+    --grad: linear-gradient(90deg,#f5b300,#ff4b1f);
 }
 
 /* Base*/
@@ -20,10 +20,11 @@ html, body {
 
 body {
     margin:0;
-    font-family: "Poppins", sans-serif;
+    font-family: "Teko Bold", sans-serif;
     background-color: var(--light);
     color: var(--dark-text);
     line-height: 1.6;
+    letter-spacing: 0.3px;
     padding-top: 72px;
 }
 
@@ -42,10 +43,13 @@ nav {
     width: 100%;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    background: rgba(140, 3, 3, 0.95);
 }
 
 .logo {
     width: 40px;
+    filter: drop-shadow(1.5px 1.5px 3px rgba(4, 3, 0, 0.5));
 }
 
 nav ul {
@@ -65,16 +69,18 @@ nav ul li a{
 
 nav ul li a:hover{
     color: white;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
 /*===== Hero Section =====*/
 .hero {
     position: relative;
     text-align: center;
-    background: var(--deep-red);
-    color: white;
-    padding: 5rem 2rem 6rem;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    background: linear-gradient(180deg, #6b0101 0%, var(--deep-red)100%);
+    color: #fff7e0;
+    padding: 3rem 1.5rem 4rem;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+    box-shadow: inset 0 -10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .hero::after {
@@ -89,44 +95,154 @@ nav ul li a:hover{
 }
 
 .hero-logo {
-    width: clamp(160px, 35vw, 360px);
-    max-width: 360px;
+    width: clamp(140px, 30vw, 360px);
     height: auto;
     display: block;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto .3rem;
+    filter: drop-shadow(7px 7px 5px rgba(4, 3, 0, 0.5));
 }
 
 .hero h2 {
-    font-size: 2rem;
-    color: var(--gold);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.25;
+    color: #ffffff;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    margin-top: 1rem;
+    font-weight: 700;
 }
 
-.btn {
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #fff7e0;
+    opacity: .95;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    margin: 1rem auto;
+    max-width: 46ch;
+}
+
+.hero .btn {
     display: inline-block;
     margin-top: 1.5rem;
     background: var(--grad);
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    letter-spacing: 0.4px;
+    font-weight: 700;
+    padding: .9rem 1.8rem;
+    border-radius: 6px;
     text-decoration: none;
-    transition: oacity 0.2s;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
-.btn:hover {
-    opacity: 0.85;
+
+.hero .btn:hover {
+    opacity: 0.9;
+    filter: brightness(1.1);
+    transform: scale(1.04);
+}
+.hero .btn:active {
+    transform: scale(.97); 
+    box-shadow: 0 0 10px var(--gold);
 }
 
 /* ===== Main Section =====*/
+main {
+    background: var(--light);
+    color: var(--dark-text);
+}
+
 main section {
     padding: 4rem 2rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
 }
 
 main h2 {
     color: var(--deep-red);
     border-left: 6px solid var(--gold);
-    padding-left: 10px;
+    padding-left: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+/*===== grid layout =====*/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/*===== Project Card =====*/
+.card {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.card-link:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--gold), #fff 30%);
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgb(0 ,0 , 0, 0.18);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/*===== Card Content =====*/
+.card h3 {
+    color: var(--deep-red);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.card .tags {
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+}
+
+.card .btn-small {
+    text-align: center;
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    background: var(--grad);
+    color: white;
+    font-weight: 600;
+    transition: transform .2s ease, background .3s ease; 
+}
+
+.card a .btn-small:hover {
+    transform: scale(1.05);
 }
 
 /* ===== Form ===== */
@@ -141,6 +257,12 @@ input, textarea, button {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-family: inherit;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--gold);
+    outline: none;
+    box-shadow: 0 0 6px rgba(225, 169, 4, 0.4);
 }
 
 button{
@@ -185,23 +307,68 @@ button{
 /* ===== Footer ===== */
 
 footer{
-    background: #222;
-    color: #ccc;
+    background: linear-gradient(180deg, #111 0%, #1a0000 100%);;
+    color: #ddd;
     text-align: center;
     padding: 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
 }
 
-
 /* ===== Fade-in Effect =====*/
+.hero {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.hero .btn {
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
 section {
     opacity: 0;
     transform: translateY(40px);
     animation: fadeInUp 1s ease forwards;
 }
 
+@media (max-width: 900px){
+    .hero {
+        padding: 4rem 1.5rem 5rem;
+    }
+
+    .hero h2 {
+        max-width: 30ch;
+    }
+
+    .hero p {
+        max-width: 46ch;
+    }
+}
+
 @media (max-width: 600px){
     .hero {
-        padding: 3.5rem 1rem;
+        padding: 2.5rem 1rem 3rem;
+    }
+
+    /*===== better spacing =====*/
+    .hero-logo {
+        margin-bottom: 1rem;
+    }
+
+    .hero h2 {
+        margin-bottom: .5rem;
+    }
+
+    .hero p {
+        margin-bottom: 1rem;
+    }
+
+    /*===== touchable botton =====*/
+    .hero .btn {
+        width: min(240px, 90%);
+        padding: .9rem 1.25rem;
+        margin-bottom: 3rem;
     }
 
     nav ul {
