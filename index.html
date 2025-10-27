@@ -22,7 +22,7 @@
         <title>Neihn - Portifólio de Luiz Carmo</title>
         <link rel="stylesheet" href="style.css"/>
         <script type="application/id+json">
-            {S
+            {
                 "@context": "https://schema.org",
                 "@type": "Person",
                 "name": "Luiz Carmo",
@@ -101,6 +101,7 @@
 
             <section id="contact">
                 <h2>Contato</h2>
+                <p id="forStatus" role="status" aria-live="polite"></p>
                 <form id="contactForm" action="https://formspree.io/f/movpjvpv" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Seu nome" required>
                     <input type="email" name="email" placeholder="Seu e-mail" required>
@@ -108,13 +109,22 @@
                     <button type="submit">Enviar Mensagem</button>
                 </form>
             </section>
+
             <script>
-            const form = document.getElementById('contactForm');
-            const statusEL = document.getElementById('formStatus');
+            const form = 
+            document.getElementById('contactForm');
+            const statusEL = 
+            document.getElementById('formStatus');
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                statusEL.TextyContent = 'Enviando...';
+                statusEL.textContent = 'Enviando...';
+
+                const submitBtn =
+                form.querySelector('[type="submit"]');
+                submitBtn.disabled = true;
+                
+                const formData = new FormData(form);
 
                 try {
                     const resp = await fetch(form.action, {
@@ -131,8 +141,11 @@
                     } else {
                         statusEl.textContent = 'Não foi possível enviar. Tente novamente.';
                     }
-                } catch (error) {
+                } catch (err) {
                     statusEL.textContent = 'Erro de conexão. Verifique sua internet.';
+                }
+                finally {
+                    submitBtn.disabled = false;
                 }
             });
         </script>
