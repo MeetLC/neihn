@@ -230,7 +230,7 @@ main h2 {
 }
 
 .card .tags {
-    color: var(--gold);
+    color: var(--dark-text);
     font-weight: 500;
     margin-bottom: 0.8rem;
 }
