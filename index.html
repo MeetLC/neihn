@@ -46,6 +46,7 @@
                 <ul>
                     <li><a href="#home">Início</a></li>
                     <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
                     <li><a href="#portfolio">Portfólio</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
@@ -68,6 +69,66 @@
             <section id="about">
                 <h2>Sobre</h2>
                 <p>Sou Luiz Carmo - web designer apaixonado, criando sites bonitos, rápidos e acessíveis.</p>
+            </section>
+
+            <section id="services" aria-labelledby="sevices-title">
+                <div class="container">
+                    <header class="services-header">
+                        <h2 id="services-title">O que eu faço</h2>
+                        <p class="services-sub">No <strong>Neihn</strong>, transformo ideias em presença digital e identidade visual de impacto</p>
+                    </header>
+
+                    <div class="services-grid">
+                        <!-- site build -->
+                         <article class="services-card">
+                            <div class="services-icone" aria-hidden="true">
+                                <!-- Icone in line (monitor) -->
+                                 <svg width="32" height="32" viewBox="0 0 24 24" role="img" aria-label="Criação de Site">
+                                    <path fill="currentColor" 
+                                    d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm1 2v9h16V6H4z"/>
+                                 </svg>
+                            </div>
+                            <h3>Criação de Sites</h3>
+                            <p class="services-text">
+                                Sites institucionais, portfólio e Landing Pages com foco en design, performance e experiência de usuário.
+                            </p>
+                            <ul class="services-list">
+                                <li>Layout Responsivo e rápido</li>
+                                <li>SEO e performance (PageSpeed 90+)</li>
+                                <li>Hospedagem com HTTPS (Cloudflare Pages)</li>
+                                <li>Formulários Integrados</li>
+                            </ul>
+                            <a class="btn-small" href="#contact">Quero um site</a>
+                         </article>
+
+                         <!-- Card: branding -->
+                          <article class="services-card">
+                            <div class="services-icone" aria-hidden="true">
+                                <!-- Icone in line (marca/lapis) -->
+                                 <svg width="32" height="32" viewBox="0 0 24 24" role="img" aria-label="Identidade Visual">
+                                    <path fill="currentColor" 
+                                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+                                 </svg>
+                            </div>
+                            <h3>Identidade Visual</h3>
+                            <p class="services-text">
+                                Logotipo, paleta de cores e tipografia em um sistema visual coerente, pronto para digital e impresso.<br><br>
+                            </p>
+                            <ul class="services-list">
+                                <li>Logo principal e símbolo</li>
+                                <li>Paleta + Tipografia</li>
+                                <li>Manual de marca (PDF)</li>
+                                <li>aplicação para redes e materiais</li>
+                            </ul>
+                            <a class="btn-small" href="#contact">Quero minha marca</a>
+                         </article>
+                    </div>
+
+                    <footer class="services-cta">
+                        <p>Dúvida ou um projeto em mente?</p>
+                        <a class="btn" href="#contact">Fale comigo</a>
+                    </footer>
+                </div>
             </section>
 
             <section id="portfolio">
@@ -110,45 +171,7 @@
                 </form>
             </section>
 
-            <script defer>
-            const form = 
-            document.getElementById('contactForm');
-            const statusEL = 
-            document.getElementById('formStatus');
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                statusEL.textContent = 'Enviando...';
-
-                const submitBtn =
-                form.querySelector('[type="submit"]');
-                submitBtn.disabled = true;
-                
-                const formData = new FormData(form);
-
-                try {
-                    const resp = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (resp.ok) {
-                        form.reset();
-                        statusEl.textContent = 'Mensagem enviada com sucesso! Obrigado';
-                    } else {
-                        statusEl.textContent = 'Não foi possível enviar. Tente novamente.';
-                    }
-                } catch (err) {
-                    statusEL.textContent = 'Erro de conexão. Verifique sua internet.';
-                }
-                finally {
-                    submitBtn.disabled = false;
-                }
-            });
-        </script>
+            <scrip src="js/form.js" defer></script>
         </main>
 
         <!-- Footer Section -->
