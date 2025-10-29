@@ -28,7 +28,7 @@ body {
     padding-top: 72px;
 }
 
-/* ===== Navigation =====*/
+/* ===== Nav Bar Section =====*/
 nav {
     display: flex;
     box-sizing: border-box;
@@ -167,6 +167,19 @@ main h2 {
     border-left: 6px solid var(--gold);
     padding-left: 0.6rem;
     margin-bottom: 1rem;
+}
+
+/* ===== About section =====*/
+#about {
+    background: var(--light);
+    padding: 6rem 2rem;
+} 
+
+#about p {
+    max-width: 75ch;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #333;
 }
 
 /*===== grid layout =====*/
@@ -428,15 +441,7 @@ button{
     }
 }
 
-/* ===== About Section ===== */
-#about {
-    background: var(--light);
-    padding: 6rem 2rem;
-    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
-} 
-
-/* ===== Footer ===== */
-
+/* ===== Footer Section ===== */
 footer{
     background: linear-gradient(180deg, #111 0%, #1a0000 100%);;
     color: #ddd;
