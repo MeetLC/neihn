@@ -1,202 +1,314 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <!-- Head Section-->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="description" content="Neihn - portifólio de Luiz Carmo - web designer criativo,
-         criando sites rápidos, bonitos e acessíveis.">
-        <!-- Open Graph / Social Meta -->
-        <meta property="og:title" content="Neihn - Portfólio de Luiz Carmo">
-        <meta property="og:description" content="Design que inspira. Construindo ideias, um pixel de cada vez.">
-        <meta property="og:image" content="https://neihn.pages.dev/img/neihn-preview.webp">
-        <meta property="og:type" content="website">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Neihn - Portifólio de Luiz Carmo">
-        <meta name="twitter:description" content="Design que inspira. Construindo ideias, um pixel de cada vez.">
-        <meta property="twitter:image" content="https://neihn.pages.dev/img/neihn-preview.webp">
-        <meta name="robots" content="index, follow">
-        <meta property="og:type" content="website">
-        <meta property="og:locale" content="pt_BR">
-        <link rel="icon" type="image/webp" href="img/Neihn-icon.webp">
-        <title>Neihn - Portifólio de Luiz Carmo</title>
-        <link rel="stylesheet" href="style.css"/>
-        <script src="js/app.js" defer></script>
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Luiz Carmo",
-                "url": "https://neihn.pages.dev",
-                "jobTitle": "Web Designer",
-                "description": "Portfólio de Luiz Carmo - web designer apaixonado, criando sites bonitos, rápidos e acessíveis.",
-                "image": "https://neihn.pages.dev/img/neihn-preview.webp",
-                "sameAs": [
-                    "https://www.behance.net/MeetLC",
-                    "https://www.linkedin.com/in/meetlc",
-                    "https://www.github.com/MeetLC"
-                ]
-            }
-        </script>
-    </head>
+<head>
+    <!-- ===== Meta básica ===== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <body>
-        <header>
-            <!-- Nav Bar -->
-            <nav class="navbar">
-                <div class="nav-logo">
-                    <a href="#home"><img src="img/Neihn-icon.webp" alt="Neihn Logo" class="nav-logo"></a>
-                </div>
+    <!-- ===== SEO ===== -->
+    <title>Neihn - Portfólio de Luiz Carmo</title>
+    <meta name="description" content="Neihn - portfólio de Luiz Carmo, web designer. Sites rápidos, bonitos e acessíveis.">
 
-                <div class="nav-links">
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#portfolio">Portfólio</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                    </ul>
-                </div>
+    <meta name="robots" content="index, follow">
 
-                <button aria-label="toggleMenu" id="responsiveMenu">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="openIcon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="closeIcon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </nav>
-            
-            <!-- hero Section -->
-            <section class="hero" id="home">
-                <img class="hero-logo" src="img/Neihn360.webp" 
-                srcset="img/Neihn180.webp 180w, img/Neihn220.webp 220w, img/Neihn360.webp 360w" 
-                sizes="(max-width: 600px) 220px, 360px" width="360" height="360" 
-                alt="Logotipo Neihn">
-                <h2>Design que inspira.</h2>
-                <p>Construindo ideias, um pixel de cada vez.</p>
-                <a href="#portfolio" class="btn">Meus trabalhos</a>
-            </section>
-        </header>
-        
-        <!-- Main Section -->
-        <main>
-            <section id="about">
-                <h2>Sobre</h2>
-                <p>Sou Luiz Carmo, web designer e fundador do Neihn - onde transformo ideias em experiencias digitais memoráveis.
-                    <br><br>Acredito  que design é mais do que estética: é clareza, proposito e emoção.
-                    <br><br>Crio sites rápidos, acessíveis e com identidade, que comunican valor e constroem conexões reais entre marcas e pessoas.
-                </p>
-            </section>
+    <!-- ===== Social / Open Graph ===== -->
+    <meta property="og:title" content="Neihn - Portfólio de Luiz Carmo">
+    <meta property="og:description" content="Design que inspira. Construindo ideias, um pixel de cada vez.">
+    <meta property="og:image" content="https://neihn.pages.dev/img/neihn-preview.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
 
-            <!-- Services Section -->
-            <section id="services" aria-labelledby="sevices-title">
-                <div class="container">
-                    <header class="services-header">
-                        <h2 id="services-title">O que eu faço</h2>
-                        <p class="services-sub">No <strong>Neihn</strong>, transformo ideias em presença digital e identidade visual de impacto</p>
-                    </header>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Neihn - Portfólio de Luiz Carmo">
+    <meta name="twitter:description" content="Design que inspira. Construindo ideias, um pixel de cada vez.">
+    <meta property="twitter:image" content="https://neihn.pages.dev/img/neihn-preview.webp">
 
-                    <div class="services-grid">
-                        <!-- site build -->
-                         <article class="services-card">
-                            <div class="services-icone" aria-hidden="true">
-                                <!-- Icone in line (monitor) -->
-                                 <svg width="32" height="32" viewBox="0 0 24 24" role="img" aria-label="Criação de Site">
-                                    <path fill="currentColor" 
-                                    d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm1 2v9h16V6H4z"/>
-                                 </svg>
-                            </div>
-                            <h3>Criação de Sites</h3>
-                            <p class="services-text">
-                                Sites institucionais, portfólio e Landing Pages com foco en design, performance e experiência de usuário.
-                            </p>
-                            <ul class="services-list">
-                                <li>Layout Responsivo e rápido</li>
-                                <li>SEO e performance (PageSpeed 90+)</li>
-                                <li>Hospedagem com HTTPS (Cloudflare Pages)</li>
-                                <li>Formulários Integrados</li>
-                            </ul>
-                            <a class="btn-small" href="#contact">Quero um site</a>
-                         </article>
+    <!-- ===== Favicon ===== -->
+    <link rel="icon" type="image/webp" href="img/Neihn-icon.webp">
 
-                         <!-- Card: branding -->
-                          <article class="services-card">
-                            <div class="services-icone" aria-hidden="true">
-                                <!-- Icone in line (marca/lapis) -->
-                                 <svg width="32" height="32" viewBox="0 0 24 24" role="img" aria-label="Identidade Visual">
-                                    <path fill="currentColor" 
-                                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
-                                 </svg>
-                            </div>
-                            <h3>Identidade Visual</h3>
-                            <p class="services-text">
-                                Logotipo, paleta de cores e tipografia em um sistema visual coerente, pronto para digital e impresso.<br><br>
-                            </p>
-                            <ul class="services-list">
-                                <li>Logo principal e símbolo</li>
-                                <li>Paleta + Tipografia</li>
-                                <li>Manual de marca (PDF)</li>
-                                <li>aplicação para redes e materiais</li>
-                            </ul>
-                            <a class="btn-small" href="#contact">Quero minha marca</a>
-                         </article>
-                    </div>
+    <!-- ===== Styles & Script ===== -->
+    <link rel="stylesheet" href="style.css">
+    <script src="js/app.js" defer></script>
 
-                    <footer class="services-cta">
-                        <p>Dúvida ou um projeto em mente?</p>
-                        <a class="btn" href="#contact">Fale comigo</a>
-                    </footer>
-                </div>
-            </section>
+    <!-- ===== Structured Data (JSON-LD) ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Luiz Carmo",
+        "url": "https://neihn.pages.dev",
+        "jobTitle": "Web Designer",
+        "description": "Portfólio de Luiz Carmo - web designer criando sites bonitos, rápidos e acessíveis.",
+        "image": "https://neihn.pages.dev/img/neihn-preview.webp",
+        "sameAs": [
+            "https://www.behance.net/MeetLC",
+            "https://www.linkedin.com/in/meetlc",
+            "https://www.github.com/MeetLC"
+        ]
+    }
+    </script>
+</head>
 
-            <!-- Portfolio Section -->
-            <section id="portfolio">
-                <h2>Portfólio</h2>
-                <p>Alguns projetos em destaque:</p>
+<body>
+    <!-- ================= HEADER ================= -->
+    <header id="home">
+        <!-- ===== Navbar ===== -->
+        <nav class="navbar" aria-label="Principal">
+            <!-- Logo / marca -->
+            <a class="nav-logo" href="#home">
+                <img
+                    src="img/Neihn-icon.webp"
+                    width="40"
+                    height="40"
+                    alt="Neihn - voltar ao topo">
+            </a>
+
+            <!-- Links -->
+            <div class="nav-links" id="primary-nav">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Botão mobile -->
+            <button
+                id="responsiveMenu"
+                class=""
+                aria-label="Abrir menu"
+                aria-controls="primary-nav"
+                aria-expanded="false">
                 
-                <div class="grid">
-                    <article class="card">
-                        <a class="card-link" href="project-1.html" aria-label="Abrir: Landing Page - Conceito">
-                        <img src="img/project1.webp" alt="Prévia do Projeto 1" loading="lazy">
-                        <div class="card-body">
-                        <h3>Landing Page - Conceito</h3>
-                        <p class="tags">UI . HTML . CSS</p>
-                        <span class="btn-small">Ver</span>
-                        </div>    
-                        </a>
+                <!-- Ícone abrir -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="openIcon"
+                     aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                </svg>
+
+                <!-- Ícone fechar -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="closeIcon"
+                     aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- ===== Hero ===== -->
+        <section class="hero">
+            <img
+                class="hero-logo"
+                src="img/Neihn360.webp"
+                srcset="
+                    img/Neihn180.webp 180w,
+                    img/Neihn220.webp 220w,
+                    img/Neihn360.webp 360w"
+                sizes="(max-width: 600px) 220px, 360px"
+                width="360"
+                height="360"
+                alt="Logotipo Neihn em destaque">
+
+            <h1 class="visually-hidden">Neihn — portfólio de Luiz Carmo</h1>
+            <h2>Design que inspira.</h2>
+            <p>Construindo ideias, um pixel de cada vez.</p>
+
+            <a href="#portfolio" class="btn">Meus trabalhos</a>
+        </section>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main>
+        <!-- ===== Sobre ===== -->
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">Sobre</h2>
+            <p>
+                Sou Luiz Carmo, web designer e fundador do Neihn – onde transformo ideias em experiências digitais memoráveis.
+                <br><br>
+                Acredito que design é mais do que estética: é clareza, propósito e emoção.
+                <br><br>
+                Crio sites rápidos, acessíveis e com identidade, que comunicam valor e constroem conexões reais entre marcas e pessoas.
+            </p>
+        </section>
+
+        <!-- ===== Serviços ===== -->
+        <section id="services" aria-labelledby="services-title">
+            <div class="container">
+                <header class="services-header">
+                    <h2 id="services-title">O que eu faço</h2>
+                    <p class="services-sub">
+                        No <strong>Neihn</strong>, transformo ideias em presença digital e identidade visual de impacto.
+                    </p>
+                </header>
+
+                <div class="services-grid">
+                    <!-- Card: Sites -->
+                    <article class="services-card">
+                        <div class="services-icone" aria-hidden="true">
+                            <!-- ícone monitor -->
+                            <svg
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                role="img"
+                                aria-label="Criação de Site">
+                                <path fill="currentColor"
+                                d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm1 2v9h16V6H4z"/>
+                            </svg>
+                        </div>
+
+                        <h3>Criação de Sites</h3>
+                        <p class="services-text">
+                            Sites institucionais, portfólio e Landing Pages com foco em design, performance e experiência de usuário.
+                        </p>
+
+                        <ul class="services-list">
+                            <li>Layout responsivo e rápido</li>
+                            <li>SEO e performance (PageSpeed 90+)</li>
+                            <li>Hospedagem com HTTPS (Cloudflare Pages)</li>
+                            <li>Formulários integrados</li>
+                        </ul>
+
+                        <a class="btn-small" href="#contact">Quero um site</a>
                     </article>
 
-                    <article class="card">
-                        <a class="card-link" href="project-2.html" aria-label="Abrir: Logo & Identidade Visual">
-                        <img src="img/project2.webp" alt="Prévia do Projeto 2" loading="lazy">
-                        <div class="card-body">
-                        <h3>Logo & Identidade Visual</h3>
-                        <p class="tags">Branding . Illustrator</p>
-                        <span class="btn-small">Ver</span>
+                    <!-- Card: Branding -->
+                    <article class="services-card">
+                        <div class="services-icone" aria-hidden="true">
+                            <!-- ícone lápis / marca -->
+                            <svg
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                role="img"
+                                aria-label="Identidade Visual">
+                                <path fill="currentColor"
+                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+                            </svg>
                         </div>
-                        </a>
+
+                        <h3>Identidade Visual</h3>
+                        <p class="services-text">
+                            Logotipo, paleta de cores e tipografia em um sistema visual coerente, pronto para digital e impresso.
+                        </p>
+
+                        <ul class="services-list">
+                            <li>Logo principal e símbolo</li>
+                            <li>Paleta + tipografia</li>
+                            <li>Manual de marca (PDF)</li>
+                            <li>Aplicações para redes e materiais</li>
+                        </ul>
+
+                        <a class="btn-small" href="#contact">Quero minha marca</a>
                     </article>
                 </div>
-            </section>
 
-            <!-- Contact Section -->
-            <section id="contact">
-                <h2>Contato</h2>
-                <p id="formStatus" role="status" aria-live="polite"></p>
-                <form id="contactForm" action="https://formspree.io/f/movpjvpv" method="POST" novalidate>
-                    <input type="text" name="name" placeholder="Seu nome" required>
-                    <input type="email" name="email" placeholder="Seu e-mail" required>
-                    <textarea name="message" placeholder="Sua menssagem" required></textarea>
-                    <button type="submit">Enviar Mensagem</button>
-                </form>
-            </section>
-        </main>
+                <footer class="services-cta">
+                    <p>Dúvida ou um projeto em mente?</p>
+                    <a class="btn" href="#contact">Fale comigo</a>
+                </footer>
+            </div>
+        </section>
 
-        <!-- Footer Section -->
-        <footer>
-            <p>© 2025 Neihn - Feito com paixão</p>
-        </footer>
-    </body>
+        <!-- ===== Portfólio ===== -->
+        <section id="portfolio" aria-labelledby="portfolio-title">
+            <h2 id="portfolio-title">Portfólio</h2>
+            <p>Alguns projetos em destaque:</p>
+
+            <div class="grid">
+                <!-- Projeto 1 -->
+                <article class="card">
+                    <a class="card-link"
+                       href="project-1.html"
+                       aria-label="Abrir: Landing Page - Conceito">
+                        <img
+                            src="img/project1.webp"
+                            alt="Prévia visual da Landing Page Conceito"
+                            loading="lazy">
+                        <div class="card-body">
+                            <h3>Landing Page — Conceito</h3>
+                            <p class="tags">UI · HTML · CSS</p>
+                            <span class="btn-small" aria-hidden="true">Ver</span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Projeto 2 -->
+                <article class="card">
+                    <a class="card-link"
+                       href="project-2.html"
+                       aria-label="Abrir: Logo & Identidade Visual">
+                        <img
+                            src="img/project2.webp"
+                            alt="Prévia da identidade visual criada"
+                            loading="lazy">
+                        <div class="card-body">
+                            <h3>Logo &amp; Identidade Visual</h3>
+                            <p class="tags">Branding · Illustrator</p>
+                            <span class="btn-small" aria-hidden="true">Ver</span>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== Contato ===== -->
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contato</h2>
+
+            <!-- status de envio -->
+            <p id="formStatus" role="status" aria-live="polite"></p>
+
+            <form
+                id="contactForm"
+                action="https://formspree.io/f/movpjvpv"
+                method="POST"
+                novalidate>
+
+                <label class="visually-hidden" for="name">Nome</label>
+                <input id="name" type="text" name="name" placeholder="Seu nome" required>
+
+                <label class="visually-hidden" for="email">E-mail</label>
+                <input id="email" type="email" name="email" placeholder="Seu e-mail" required>
+
+                <label class="visually-hidden" for="message">Mensagem</label>
+                <textarea id="message" name="message" placeholder="Sua mensagem" required></textarea>
+
+                <button type="submit">Enviar mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>© 2025 Neihn — Feito com paixão</p>
+    </footer>
+
+    <!-- helper para acessibilidade visual-only -->
+    <style>
+        /* classe utilitária que só leitores de tela enxergam */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0 0 0 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+    </style>
+</body>
 </html>
