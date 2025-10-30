@@ -1,3 +1,12 @@
+/* 
+██████████████████████████████████████████████
+[ STYLE_SHEET :: NEIHN_v2025.10 ]
+ > Author : Luiz Carmo
+ > Module : Interface Design Layer
+ > Status : ACTIVE
+██████████████████████████████████████████████
+*/
+
 /* ==============================
    1. Design Tokens / Root
 ============================== */
@@ -30,6 +39,21 @@ body {
     letter-spacing: 0.3px;
     padding-top: 72px;
 }
+
+/* helper para acessibilidade visual-only */
+/* classe utilitária que só leitores de tela enxergam */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0 0 0 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
 
 /* Generic elements */
 main {
@@ -190,7 +214,7 @@ h2,
     height: 10px;
 
     background: linear-gradient(90deg, #ffd700, #ff4500);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .hero-logo {
@@ -649,3 +673,11 @@ footer {
         backdrop-filter: blur(6px);
     }
 }
+/* 
+██████████████████████████████████████████████
+[ STYLE_SHEET END_LOG :: NEIHN_v2025.10 ]
+ > Styled by Luiz Carmo
+ > Visual system : NEIHN
+ > Status : STABLE
+██████████████████████████████████████████████
+*/

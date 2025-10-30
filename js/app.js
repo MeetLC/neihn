@@ -1,3 +1,12 @@
+/* 
+██████████████████████████████████████████████
+[ INIT_SCRIPT :: NEIHN_v2025.10 ]
+ > Author : Luiz Carmo
+ > Module : Interactive Engine
+ > Status : RUNNING
+██████████████████████████████████████████████
+*/
+
 // ===========================
 // Navbar responsiva / mobile
 // ===========================
@@ -31,3 +40,11 @@ if (nav && btn) {
     });
   });
 }
+/* 
+██████████████████████████████████████████████
+[ END_LOG :: NEIHN_v2025.10 ]
+ > Interaction layer by Luiz Carmo
+ > System integrity : OK
+ > Status : ONLINE
+██████████████████████████████████████████████
+*/
