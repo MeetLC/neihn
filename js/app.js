@@ -25,29 +25,29 @@ if (nav && btn) {
 }
 
 // ===== formspree contact form =====
-const form = document.getElementById('contactForm');
-const statusEl = document.getElementById('formStatus');  // use sempre a MESMA grafia
+//const form = document.getElementById('contactForm');
+//const statusEl = document.getElementById('formStatus');  // use sempre a MESMA grafia
 
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (statusEl) statusEl.textContent = 'Enviando...';
+//if (form) {
+  //form.addEventListener('submit', async (e) => {
+    //e.preventDefault();
+    //if (statusEl) statusEl.textContent = 'Enviando...';
 
-    try {
-      const resp = await fetch(form.action, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      });
+   //try {
+      //const resp = await fetch(form.action, {
+       // method: 'POST',
+        //headers: { 'Accept': 'application/json' },
+        //body: new FormData(form)
+     // });
 
-      if (resp.ok) {
-        form.reset();
-        if (statusEl) statusEl.textContent = 'Mensagem enviada com sucesso! Obrigado.';
-      } else {
-        if (statusEl) statusEl.textContent = 'Não foi possível enviar. Tente novamente.';
-      }
-    } catch (err) {
-      if (statusEl) statusEl.textContent = 'Erro de conexão. Verifique sua internet.';
-    }
-  });
-}
+      //if (resp.ok) {
+       // form.reset();
+       //if (statusEl) statusEl.textContent = 'Mensagem enviada com sucesso! Obrigado.';
+      //} else {
+//if (statusEl) statusEl.textContent = 'Não foi possível enviar. Tente novamente.';
+      //}
+   // } catch (err) {
+      //if (statusEl) statusEl.textContent = 'Erro de conexão. Verifique sua internet.';
+   // }
+  //});
+//}
