@@ -226,6 +226,11 @@ h2,
     filter: drop-shadow(7px 7px 5px rgba(4, 3, 0, 0.5));
 }
 
+.hero-logo img {
+    width: 40px;
+    height: auto;
+}
+
 .hero h1 {
     font-size: 2rem;
     color: var(--gold);
