@@ -28,8 +28,8 @@ body {
     padding-top: 72px;
 }
 
-/* ===== Nav Bar Section =====*/
-nav {
+/* ===== Navbar Section =====*/
+.navbar {
     display: flex;
     box-sizing: border-box;
     justify-content: space-between;
@@ -47,12 +47,12 @@ nav {
     background: rgba(140, 3, 3, 0.95);
 }
 
-.logo {
+.nav-logo {
     width: 40px;
     filter: drop-shadow(1.5px 1.5px 3px rgba(4, 3, 0, 0.5));
 }
 
-nav ul {
+.nav-links ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
@@ -60,16 +60,51 @@ nav ul {
     padding: 0;
 }
 
-nav ul li a{
+.nav-links ul li a{
     color: var(--gold);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
 }
 
-nav ul li a:hover{
+.nav-links ul li a:hover{
     color: white;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+#responsiveMenu {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#responsiveMenu svg {
+    height: 3rem ;
+    width: 3rem ;
+    color: var(--gold);
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+}
+
+#responsiveMenu .openIcon {
+    display: block;
+}
+
+#responsiveMenu .closeIcon {
+    display: none;
+}
+
+#responsiveMenu.active .openIcon {
+    display: none;
+}
+
+#responsiveMenu.active .closeIcon {
+    display: block;
 }
 
 /*===== Hero Section =====*/
@@ -483,6 +518,65 @@ section {
 }
 
 @media (max-width: 600px){
+
+    .navbar {
+        oadding: .75rem 1rem;
+        min-height: 56px;
+    }
+
+    .nav-links {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 56px;
+        background: rgba(110, 1, 1, .98);
+        transform: translateY(-120%);
+        transition: transform 0.25s ease;
+        display: block;
+        z-index: 998;
+    }
+
+    .nav-links.open {
+        transform: translateY(0);
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        padding: 10px 14px 14px;
+        gap: .25rem;
+
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 12px 10px;
+        border-radius: 10px;
+    }
+
+    #responsiveMenu {
+        display: grid;
+        place-items: center;
+        position: absolute;
+        right: .5rem;
+        top: .2rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+    }
+
+    #responsiveMenu .openIcon {
+       display: block;
+    }
+    #responsiveMenu .closeIcon {
+        display: none;
+    }
+    #responsiveMenu.active .openIcon {
+        display: none;
+    }
+    #responsiveMenu.active .closeIcon {
+        display: block;
+    }
+
     .hero {
         padding: 2.5rem 1rem 3rem;
     }
