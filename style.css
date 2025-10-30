@@ -139,6 +139,11 @@ h2,
     filter: drop-shadow(1.5px 1.5px 3px rgba(4, 3, 0, 0.5));
 }
 
+.nav-logo img {
+    width: 40px;
+    height: auto;
+}
+
 .nav-links ul {
     list-style: none;
     display: flex;
@@ -224,11 +229,6 @@ h2,
     display: block;
     margin: 0 auto 0.3rem;
     filter: drop-shadow(7px 7px 5px rgba(4, 3, 0, 0.5));
-}
-
-.hero-logo img {
-    width: 40px;
-    height: auto;
 }
 
 .hero h1 {
