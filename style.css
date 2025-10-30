@@ -600,6 +600,18 @@ footer {
         border-radius: 10px;
     }
 
+#responsiveMenu:focus,
+#responsiveMenu:active {
+  outline: none;
+  box-shadow: none;
+}
+
+#responsiveMenu:focus-visible {
+  outline: 2px solid rgba(245, 179, 0, 0.4); /* borda dourada suave */
+  outline-offset: 4px;
+  box-shadow: none;
+}
+
     #responsiveMenu .openIcon  { display: block; }
     #responsiveMenu .closeIcon { display: none; }
     #responsiveMenu.active .openIcon  { display: none; }
