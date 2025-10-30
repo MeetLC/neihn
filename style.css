@@ -238,6 +238,7 @@ h2,
     line-height: 1.25;
     color: #fff;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    border-left: none;
 }
 
 .hero p {
