@@ -135,6 +135,7 @@ h2,
 
 .nav-logo {
     width: 40px;
+    height: auto;
     filter: drop-shadow(1.5px 1.5px 3px rgba(4, 3, 0, 0.5));
 }
 
