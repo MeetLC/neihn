@@ -62,7 +62,7 @@ main {
 }
 
 main section {
-    max-width: 900px;
+    max-width: 1200px;
     margin: auto;
     padding: 4rem 2rem;
 }
@@ -394,9 +394,10 @@ h2,
 }
 
 #services .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
+
 
 .services-header h2 {
     /* sobrescreve margin para o h2 dentro de services */
@@ -417,13 +418,14 @@ h2,
 }
 
 .services-card {
+    display: flex;
+    flex-direction: column;
+    /* mantém o resto do seu estilo existente */
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.6);
     border-radius: 14px;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
     padding: 1.25rem 1.25rem 1.35rem;
-    display: flex;
-    flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.25s ease;
 }
 
@@ -456,6 +458,7 @@ h2,
 .service-text {
     margin: 0 0 .8rem;
     color: #333;
+    flex-direction: column;
 }
 
 /* Lista de bullets */
@@ -463,10 +466,17 @@ h2,
     margin: 0 0 1rem;
     padding-left: 1.1rem;
     color: #222;
+    flex-grow: 1;              /* <<< AQUI: faz a lista ocupar o espaço livre */
 }
 
 .services-list li {
     margin: .25rem 0;
+}
+
+/* garante que o botão fique encostado no fundo do card */
+.services-card .btn-small {
+    margin-top: auto;          /* <<< empurra pro fim */
+    align-self: flex-start;    /* mantem alinhado à esquerda dentro do card */
 }
 
 /* CTA final */
