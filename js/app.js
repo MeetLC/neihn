@@ -11,13 +11,11 @@
 // Navbar responsiva / mobile
 // ===========================
 const btn = document.getElementById('responsiveMenu');
-const nav = document.querySelector('.nav-links');
+const nav = document.querySelector('#primary-nav');
 
 if (nav && btn) {
   // Garantir atributos de acessibilidade (caso algo não esteja no HTML)
-  if (!nav.id) {
-    nav.id = 'primary-nav';
-  }
+ 
   btn.setAttribute('aria-controls', 'primary-nav');
   btn.setAttribute('aria-expanded', 'false');
   btn.setAttribute('aria-label', 'Abrir menu');
