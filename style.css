@@ -10,9 +10,45 @@
 /* ==============================
    0. Fontes / Hierarquia
 ============================== */
+/* Libre Franklin - Títulos e Destaques */
+@font-face {
+    font-family:LibreFranklin;
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/libre-franklin-v20-latin_latin-ext-regular.woff2) format("woff2");
+}
+
+@font-face {
+    font-family:LibreFranklin;
+    font-style:  normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(assets/fonts/libre-franklin-v20-latin_latin-ext-700.woff2) format("woff2");
+}
+
+/* Cambay - Texto Corrido e Parágrafos */
+@font-face {
+    font-family: Cambay; 
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/cambay-v14-latin_latin-ext-regular.woff2) format("woff2");
+}
+
+/* Nunito Sans - Interface e UI */
+@font-face {
+    font-family: Nunito Sans; 
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/nunito-sans-v19-latin_latin-ext-regular.woff2) format("woff2");
+}
+
 :root {
-    --font-title: "Cinzel Sans", sans-serif;
-    --font-body: "Inter", sans-serif;
+    --font-title: "Libre Franklin", sans-serif;
+    --font-body: "Cambay", sans-serif;
+    --font-UI: "Nunito Sans", sans-serif;
 }
 
 /* ==============================
@@ -114,7 +150,7 @@ h2,
     border-radius: 8px;
     border: 0;
     text-decoration: none;
-    font-family: var(--font-body);
+    font-family: var(--font-UI);
     font-weight: 700;
     color: #fff;
     line-height: 1.2;
@@ -243,6 +279,7 @@ h2,
 }
 
 .nav-links ul li a {
+    font-family: var(--font-UI);
     color: var(--gold);
     text-decoration: none;
     font-weight: 500;
@@ -348,6 +385,10 @@ h2,
     text-transform: uppercase;
     position: relative;
     display: inline-block;
+}
+
+.hero h2 {
+    border-left: none;
 }
 
 .logo-text::after {
