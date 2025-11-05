@@ -12,7 +12,7 @@
 ============================== */
 /* Libre Franklin - Títulos e Destaques */
 @font-face {
-    font-family:LibreFranklin;
+    font-family:Libre Franklin;
     font-style:  normal;
     font-weight: 400;
     font-display: swap;
@@ -128,7 +128,7 @@ h2,
     margin-bottom: 1rem;
     font-size: clamp(1.8rem, 4vw, 2.2rem);
     font-family: var(--font-title);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.02em;
 }
 
