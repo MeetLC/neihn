@@ -821,6 +821,8 @@ footer {
     #responsiveMenu.active .openIcon  { display: none; }
     #responsiveMenu.active .closeIcon { display: block; }
 
+.no-scroll { overflow: hidden; }
+
     /* hero no mobile */
     .hero {
         padding: 2.5rem 1rem 3rem;
