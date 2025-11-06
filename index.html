@@ -16,25 +16,30 @@
 
     <!-- ===== SEO ===== -->
     <title>Neihn - Portfólio de Luiz Carmo</title>
+    <link rel="canonical" href="https://neihn.pages.dev/">
     <meta name="description" content="Neihn - portfólio de Luiz Carmo, web designer. Sites rápidos, bonitos e acessíveis.">
-
     <meta name="robots" content="index, follow">
 
     <!-- ===== Social / Open Graph ===== -->
     <meta property="og:title" content="Neihn - Portfólio de Luiz Carmo">
     <meta property="og:description" content="Design que inspira. Construindo ideias, um pixel de cada vez.">
-    <meta property="og:image" content="https://neihn.pages.dev/img/neihn-preview.webp">
+    <meta property="og:image" content="https://neihn.pages.dev/img/neihn-preview-1200x630.webp">
     <meta property="og:image:alt" content="Logo dourado Neihn em fundo vermelho escuro, portfólio de Luiz Carmo.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://neihn.pages.dev/">
 
+    <!-- ===== Twitter (corrige 'property' -> 'name') ===== -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Neihn - Portfólio de Luiz Carmo">
     <meta name="twitter:description" content="Design que inspira. Construindo ideias, um pixel de cada vez.">
-    <meta property="twitter:image" content="https://neihn.pages.dev/img/neihn-preview.webp">
+    <meta name="twitter:image" content="https://neihn.pages.dev/img/neihn-preview1200x630.webp">
 
     <!-- ===== Favicon ===== -->
-    <link rel="icon" type="image/webp" href="img/Neihn-icon.webp">
+    <link rel="icon" href="img/Neihn-icon.webp" type="image/webp" sizes="any">
+    <link rel="apple-touch-icon" href="img/Neihn-icon-180.png">
+    <meta name="theme-color" content="#0d0000">
+    <meta name="color-scheme" content="light dark">
 
     <!-- ===== Styles & Script ===== -->
     <link rel="stylesheet" href="style.css">
@@ -57,6 +62,12 @@
         ]
     }
     </script>
+
+    <!-- ===== Performance: preload da hero ===== -->
+    <link rel="preload" as="image"
+          href="img/Neihn360.webp"
+          imagesrcset="img/Neihn180.webp 180w, img/Neihn220.webp 220w, img/Neihn360.webp 360w"
+          imagesizes="(max-width: 600px) 220px, 360px"> 
 
     <!-- ===== Pre-Load Fonts ===== -->
     <link rel="preload" href="assets/fonts/libre-franklin-v20-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -94,7 +105,6 @@
             <!-- Botão mobile -->
             <button
                 id="responsiveMenu"
-                class=""
                 aria-label="Abrir menu"
                 aria-controls="primary-nav"
                 aria-expanded="false">
@@ -126,17 +136,14 @@
         <!-- ===== Hero ===== -->
         <section class="hero">
     <div class="hero-inner">
-        <img
-            class="hero-logo"
-            src="img/Neihn360.webp"
-            srcset="
-                img/Neihn180.webp 180w,
-                img/Neihn220.webp 220w,
-                img/Neihn360.webp 360w"
-            sizes="(max-width: 600px) 220px, 360px"
-            width="360"
-            height="360"
-            alt="Logotipo Neihn em destaque">
+        <img class="hero-logo"
+             src="img/Neihn360.webp"
+             srcset="img/Neihn180.webp 180w, img/Neihn220.webp 220w, img/Neihn360.webp 360w"
+             sizes="(max-width: 600px) 220px, 360px"
+             width="360" height="360"
+             decoding="async"
+             fetchpriority="high"
+             alt="Logotipo Neihn em destaque">
 
         <div class="logo-text">NEIHN</div>
 
@@ -277,54 +284,82 @@
 
             <div class="grid">
                 <!-- Projeto 1 -->
-                <article class="card">
+                <article class="card" data-title="Landing Page — Conceito">
                     <a class="card-link"
                        href="project-1.html"
                        aria-label="Abrir: Landing Page - Conceito">
-                        <img
-                            src="img/project1.webp"
-                            alt="Prévia visual da Landing Page Conceito"
-                            loading="lazy">
-                        <div class="card-body">
-                            <h3>Landing Page — Conceito</h3>
-                            <p class="tags">UI · HTML · CSS</p>
-                            <span class="btn-small" aria-hidden="true">Ver</span>
-                        </div>
+                       <img
+                         src="img/project1.webp"
+                         alt="Prévia visual da Landing Page Conceito"
+                         loading="lazy" decoding="async"
+                         width="720" height="480"
+                         data-full="img/project1-full.webp">   <!-- << arte em alta -->
+                       <div class="card-body">
+                        <h3>Landing Page — Conceito</h3>
+                        <p class="tags">UI · HTML · CSS</p>
+                       </div>
                     </a>
+
+                    <!-- Botão para abrir o lightbox (não navega para outra página) -->
+                    <button class="btn-small card-view" type="button"
+                            aria-label="Ver imagem em tela cheia"
+                            data-full="img/project1-full.webp">
+                      Ampliar
+                    </button>
                 </article>
 
                 <!-- Projeto 2 -->
-                <article class="card">
+                <article class="card" data-title="Logo & identidade Visual">
                     <a class="card-link"
                        href="project-2.html"
                        aria-label="Abrir: Logo & Identidade Visual">
                         <img
                             src="img/project2.webp"
                             alt="Prévia da identidade visual criada"
-                            loading="lazy">
+                            loading="lazy"
+                            decoding="async"
+                            width="720"
+                            height="405"
+                            data-full="img/project2-full.webp">   <!-- << arte em alta -->
                         <div class="card-body">
                             <h3>Logo &amp; Identidade Visual</h3>
                             <p class="tags">Branding · Illustrator</p>
-                            <span class="btn-small" aria-hidden="true">Ver</span>
                         </div>
                     </a>
+
+                    <!-- Botão para abrir o lightbox (não navega para outra página) -->
+                    <button class="btn-small card-view" type="button"
+                            aria-label="Ver imagem em tela cheia"
+                            data-full="img/project2-full.webp">
+                      Ampliar
+                    </button>
                 </article>
 
                 <!-- Projeto 3 -->
-                <article class="card">
+                <article class="card" data-title="Edição de foto">
                     <a class="card-link"
                        href="project-3.html"
                        aria-label="Abrir: Edição de foto">
                         <img
                             src="img/project3.webp"
                             alt="Prévia da edição de foto finalizada com correção de cor e composição"
-                            loading="lazy">
+                            loading="lazy"
+                            decoding="async"
+                            width="720"
+                            height="405"
+                            data-full="img/project3-full.webp">   <!-- << arte em alta -->
                         <div class="card-body">
                             <h3>Edição de foto</h3>
                             <p class="tags">Edição · Composição · Correção de cores</p>
-                            <span class="btn-small" aria-hidden="true">Ver</span>
                         </div>
                     </a>
+
+                    <!-- Botão para abrir o lightbox (não navega para outra página) -->
+                    <button class="btn-small card-view" type="button"
+                            aria-label="Ver imagem em tela cheia"
+                            data-full="img/project3-full.webp">
+                      Ampliar
+                    </button>
                 </article>
             </div>
         </section>
@@ -360,6 +395,19 @@
     <footer>
         <p>© 2025 Neihn — Feito com paixão</p>
     </footer>
+    <!-- ===== Lightbox (modal) ===== -->
+<div class="lb-backdrop" id="lbBackdrop" hidden></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
+     aria-labelledby="lbCaption" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Fechar (Esc)">×</button>
+  <figure class="lb-figure">
+    <img id="lbImg" alt="">
+    <figcaption id="lbCaption"></figcaption>
+  </figure>
+  <button class="lb-nav prev" id="lbPrev" aria-label="Imagem anterior">‹</button>
+  <button class="lb-nav next" id="lbNext" aria-label="Próxima imagem">›</button>
+</div>
 </body>
 </html>
 <!--
