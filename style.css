@@ -12,7 +12,7 @@
 ============================== */
 /* Libre Franklin - Títulos e Destaques */
 @font-face {
-    font-family: "Libre Franklin";
+    font-family:Libre Franklin;
     font-style:  normal;
     font-weight: 400;
     font-display: swap;
@@ -20,7 +20,7 @@
 }
 
 @font-face {
-    font-family: "Libre Franklin";
+    font-family:Libre Franklin;
     font-style:  normal;
     font-weight: 700;
     font-display: swap;
@@ -129,7 +129,7 @@ h2,
     margin-bottom: 1rem;
     font-size: clamp(1.8rem, 4vw, 2.2rem);
     font-family: var(--font-title);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.02em;
 }
 
@@ -982,6 +982,8 @@ footer {
     #responsiveMenu.active .openIcon  { display: none; }
     #responsiveMenu.active .closeIcon { display: block; }
 
+.no-scroll { overflow: hidden; }
+
     /* hero no mobile */
     .hero {
         padding: 2.5rem 1rem 3rem;
@@ -1024,19 +1026,12 @@ footer {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-  section { opacity: 1 !important; transform: none !important; }
-}
-
-/* === 4) Reduce motion também no scroll === */
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior:auto; }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .btn:hover, .btn-small:hover { transform: none; }
-}
+.modal__backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(2px);z-index:9997}
+.modal{position:fixed;inset:0;display:grid;place-items:center;z-index:9998}
+.modal[hidden],.modal__backdrop[hidden]{display:none}
+.modal__card{background:#fff;color:#111;max-width:420px;width:90vw;border-radius:14px;padding:1.25rem;box-shadow:0 18px 40px rgba(0,0,0,.35);text-align:center}
+.modal__card h3{margin:.25rem 0 .5rem;color:var(--deep-red)}
+.no-scroll{overflow:hidden}
 /* 
 ██████████████████████████████████████████████
 [ STYLE_SHEET END_LOG :: NEIHN_v2025.10 ]

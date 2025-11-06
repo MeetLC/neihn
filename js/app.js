@@ -39,117 +39,114 @@ if (nav && btn) {
   });
 }
 
-// ===== Lightbox para portfólio =====
+;
+
+// ===== Formulário: AJAX + Modal Obrigado (hardened) =====
 (() => {
-  const galleryImgs = [...document.querySelectorAll('#portfolio .card img')];
-  if (!galleryImgs.length) return;
+  const form = document.getElementById('contactForm');
+  if (!form) return;
 
-  const lb = document.getElementById('lightbox');
-  const back = document.getElementById('lbBackdrop');
-  const lbImg = document.getElementById('lbImg');
-  const lbCap = document.getElementById('lbCaption');
-  const btnClose = document.getElementById('lbClose');
-  const btnPrev = document.getElementById('lbPrev');
-  const btnNext = document.getElementById('lbNext');
+  // 1) Status: cria se não existir
+  let status = document.getElementById('formStatus');
+  if (!status) {
+    status = document.createElement('p');
+    status.id = 'formStatus';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    form.insertAdjacentElement('afterend', status);
+  }
 
-  let idx = 0;
+  // 2) Modal: pega se existir, senão cria
+  let back   = document.getElementById('thanksBackdrop');
+  let modal  = document.getElementById('thanksModal');
+  let closeB = document.getElementById('thanksClose');
 
-  const open = (i) => {
-    idx = i;
-    const el = galleryImgs[idx];
-    const full = el.dataset.full || el.currentSrc || el.src;
-    lbImg.src = full;
-    lbImg.alt = el.alt || '';
-    lbCap.textContent = el.closest('.card')?.dataset.title || el.alt || '';
-    back.hidden = false; lb.hidden = false;
+  if (!back || !modal || !closeB) {
+    const frag = document.createRange().createContextualFragment(`
+      <div class="modal__backdrop" id="thanksBackdrop" hidden></div>
+      <div class="modal" id="thanksModal" role="dialog" aria-modal="true"
+           aria-labelledby="thanksTitle" aria-describedby="thanksDesc" hidden>
+        <div class="modal__card">
+          <h3 id="thanksTitle">Mensagem enviada!</h3>
+          <p id="thanksDesc">Obrigado. Vou te responder em breve.</p>
+          <button id="thanksClose" class="btn-small" type="button">Fechar</button>
+        </div>
+      </div>
+    `);
+    document.body.appendChild(frag);
+    back   = document.getElementById('thanksBackdrop');
+    modal  = document.getElementById('thanksModal');
+    closeB = document.getElementById('thanksClose');
+  }
+
+  const onKey = e => { if (e.key === 'Escape') closeModal(); };
+  const openModal = () => {
+    back.hidden = false;
+    modal.hidden = false;
     document.body.classList.add('no-scroll');
-    btnClose.focus();
+    closeB?.focus();
     document.addEventListener('keydown', onKey);
   };
-
-  const close = () => {
-    back.hidden = true; lb.hidden = true;
-    lbImg.src = ''; lbCap.textContent = '';
+  const closeModal = () => {
+    back.hidden = true;
+    modal.hidden = true;
     document.body.classList.remove('no-scroll');
     document.removeEventListener('keydown', onKey);
   };
 
-  const prev = () => open((idx - 1 + galleryImgs.length) % galleryImgs.length);
-  const next = () => open((idx + 1) % galleryImgs.length);
+  back?.addEventListener('click', closeModal);
+  closeB?.addEventListener('click', closeModal);
 
-  const onKey = (e) => {
-    if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft') prev();
-    if (e.key === 'ArrowRight') next();
-    // loop de foco básico
-    if (e.key === 'Tab') {
-      const focusables = [btnClose, btnPrev, btnNext];
-      const first = focusables[0], last = focusables[focusables.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-    }
-  };
+  // 3) Envio com fetch + proteção de múltiplos cliques + timeout
+  let sending = false;
 
-  // abrir ao clicar no botão "Ampliar" ou na imagem
-  document.getElementById('portfolio').addEventListener('click', (e) => {
-    const btn = e.target.closest('.card-view');
-    if (btn) {
-      const img = btn.closest('.card').querySelector('img');
-      const i = galleryImgs.indexOf(img);
-      e.preventDefault(); open(i);
-      return;
-    }
-    const img = e.target.closest('.card img');
-    if (img) {
-      const i = galleryImgs.indexOf(img);
-      if (i >= 0) { e.preventDefault(); open(i); }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (sending) return;
+    sending = true;
+
+    const submitBtn = form.querySelector('button[type="submit"], button, input[type="submit"]');
+    const original  = submitBtn?.textContent;
+
+    submitBtn && (submitBtn.disabled = true, submitBtn.textContent = 'Enviando…');
+    status.textContent = '';
+
+    // Timeout educado (12s) para redes lerdas
+    const ctrl = new AbortController();
+    const tId  = setTimeout(() => ctrl.abort(), 12000);
+
+    try {
+      const resp = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+        signal: ctrl.signal
+      });
+
+      if (resp.ok) {
+        form.reset();
+        openModal();
+        status.textContent = 'Mensagem enviada com sucesso.';
+      } else {
+        let msg = 'Não foi possível enviar. Tente novamente.';
+        try {
+          const data = await resp.json();
+          if (data?.errors?.length) msg = data.errors.map(e => e.message).join(' ');
+        } catch {}
+        status.textContent = msg;
+      }
+    } catch (err) {
+      status.textContent = (err.name === 'AbortError')
+        ? 'Tempo de rede esgotado. Tente novamente.'
+        : 'Sem conexão ou bloqueio de rede.';
+      console.error('[Form]', err);
+    } finally {
+      clearTimeout(tId);
+      submitBtn && (submitBtn.disabled = false, submitBtn.textContent = original || 'Enviar');
+      sending = false;
     }
   });
-
-  back.addEventListener('click', close);
-  btnClose.addEventListener('click', close);
-  btnPrev.addEventListener('click', prev);
-  btnNext.addEventListener('click', next);
 })();
-
-// ===== ScrollSpy robusto (não deixa #home preso como ativo) =====
-const headerH = parseInt(
-  getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-) || 72;
-
-const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-const ids = navLinks.map(a => a.getAttribute('href')).filter(h => h && h.startsWith('#'));
-const sections = ids.map(sel => document.querySelector(sel)).filter(Boolean);
-
-function setActive(id) {
-  navLinks.forEach(a => {
-    const on = a.getAttribute('href') === `#${id}`;
-    a.classList.toggle('active', on);
-    if (on) a.setAttribute('aria-current', 'page');
-    else a.removeAttribute('aria-current');
-  });
-}
-
-function onScrollSpy() {
-  const y = window.scrollY + headerH + 1; // compensa a navbar fixa
-  let current = sections[0]?.id;
-
-  // pega a ÚLTIMA seção cujo topo já passou do header
-  for (const s of sections) {
-    if (s.offsetTop <= y) current = s.id;
-  }
-
-  // correção de rodapé: ao chegar no fim, garante a última seção
-  const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
-  if (atBottom) current = sections[sections.length - 1].id;
-
-  setActive(current);
-}
-
-window.addEventListener('scroll', onScrollSpy, { passive: true });
-window.addEventListener('resize', onScrollSpy);
-document.addEventListener('DOMContentLoaded', onScrollSpy);
-
 /* 
 ██████████████████████████████████████████████
 [ END_LOG :: NEIHN_v2025.10 ]
