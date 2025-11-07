@@ -599,6 +599,8 @@ h2, .hero-headline {
     height: 100%;
     color: inherit;
     text-decoration: none;
+    position: relative;
+    z-index: 0;
 }
 
 .card-link:focus-visible {
