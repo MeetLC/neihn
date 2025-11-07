@@ -1,0 +1,19 @@
+{
+  "name": "neihn-site",
+  "version": "1.0.0",
+  "description": "Site/portfólio NEIHN",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/bump-version.js",
+    "precommit": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MeetLC/neihn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MeetLC/neihn/issues"
+  },
+  "homepage": "https://github.com/MeetLC/neihn#readme"
+}
