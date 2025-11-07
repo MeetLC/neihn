@@ -1,6 +1,6 @@
 /* 
 ██████████████████████████████████████████████
-[ INIT_SCRIPT :: NEIHN_v2025.10 ]
+[ INIT_SCRIPT :: NEIHN_v2025.11 ]
  > Author : Luiz Carmo
  > Module : Interactive Engine
  > Status : RUNNING
@@ -233,7 +233,7 @@ if (nav && btn) {
 })();
 /* 
 ██████████████████████████████████████████████
-[ END_LOG :: NEIHN_v2025.10 ]
+[ END_LOG :: NEIHN_v2025.11 ]
  > Interaction layer by Luiz Carmo
  > System integrity : OK
  > Status : ONLINE
