@@ -561,7 +561,7 @@ h2, .hero-headline {
     gap: 1rem;
     padding: 1rem;
     padding-bottom: 3.5rem; /* abre espaço para o botão */
-    position: relative;     /* referencia para o botão */
+    position: relative;     /* referencia para o botão f*/
 }
 
 .card-view {
