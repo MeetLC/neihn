@@ -261,8 +261,9 @@ h2,.hero-headline{ text-wrap:balance; overflow-wrap:anywhere; hyphens:auto; }
 .card-preview img{ width:100%; height:auto; display:block; border-radius:10px; }
 
 .card-body{
-  display:flex; flex-direction:column; gap:1rem; padding:1rem 1rem 1rem;
+  display:flex; flex-direction:column; gap:1rem; padding:1rem 1rem 1rem; padding-bottom: 3.25rem;
   position:relative; /* base para o botão flutuante */
+  height: 100%;
 }
 .card h3{ margin:0; font-size:1.1rem; color:var(--deep-red); }
 .card .tags{ margin-bottom:.8rem; font-weight:500; color:var(--dark-text); }
@@ -290,6 +291,10 @@ h2,.hero-headline{ text-wrap:balance; overflow-wrap:anywhere; hyphens:auto; }
 }
 .card-zoom:active, .card-view:active{ transform:translateY(0); }
 .card-zoom:focus-visible, .card-view:focus-visible{ outline:2px solid rgba(255,220,120,.85); outline-offset:3px; }
+.card .btn-small {
+  margin-top: auto; /* empurra o botão para o final */
+  align-self: flex-end; /* alinha no canto direito */
+}
 
 /* =========================================================
    8) SERVICES
@@ -444,6 +449,12 @@ footer{
 
   .card-zoom,.card-view{ width:48px; height:48px; right:10px; bottom:10px; }
   .card-zoom svg{ width:24px; height:24px; }
+  .card .btn-small {
+    margin-top: auto;
+    align-self: flex-end;
+    transform: translateY(4px); /* leve ajuste visual */
+    padding-bottom: 3.75rem;
+  }
 }
 
 /* =========================================================
