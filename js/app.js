@@ -149,7 +149,7 @@ if (nav && btn) {
 })();
 /* 
 ██████████████████████████████████████████████
-[ END_LOG :: NEIHN_v2025.10 ]g
+[ END_LOG :: NEIHN_v2025.10 ]
  > Interaction layer by Luiz Carmo
  > System integrity : OK
  > Status : ONLINE
