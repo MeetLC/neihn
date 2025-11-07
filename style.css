@@ -539,7 +539,7 @@ h2, .hero-headline {
 
 /* botão de lupa — flutuante, clean e legível */
 .card-zoom,
-.card-view { /* compat: caso ainda exista .card-view */
+.card-view {
   position: absolute;
   right: 12px;
   bottom: 12px;
@@ -550,19 +550,22 @@ h2, .hero-headline {
   padding: 0;
   border: 0;
   border-radius: 10px;
-  background: rgba(0,0,0,.45);
+  background: var(--grad);
   color: #fff;
   cursor: pointer;
   backdrop-filter: blur(6px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+  isolation: isolate;
   transition: background .25s ease, transform .2s ease, box-shadow .25s ease;
 }
 
 .card-zoom:hover,
 .card-view:hover {
-  background: rgba(0,0,0,.7);
+  filter: brightness(1.05);
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.32);
+  box-shadow:
+    0 12px 24px rgba(0,0,0,.22),
+    0 0 14px rgba(255,190,50,.35);
 }
 
 .card-zoom:active,
@@ -666,7 +669,6 @@ h2, .hero-headline {
   stroke-width: 1.75;
 }
 
-
 .card-zoom::before {
   content: "";
   position: absolute;
@@ -674,13 +676,6 @@ h2, .hero-headline {
   border-radius: 10px;
   background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0));
   pointer-events: none;
-}
-
-.card-zoom:hover,
-.card-view:hover {
-    background: rgba(0,0,0,.45) !important; /* volta para o normal */
-    transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(0,0,0,.32);
 }
 
 .card-zoom:active,
