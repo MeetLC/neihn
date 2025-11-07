@@ -522,12 +522,74 @@ h2, .hero-headline {
     border-radius: 12px;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
 }
 
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgb(0 0 0 / 0.18);
+}
+
+.card:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--gold), #fff 30%);
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+/* botão de lupa — flutuante, clean e legível */
+.card-zoom,
+.card-view { /* compat: caso ainda exista .card-view */
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: background .25s ease, transform .2s ease, box-shadow .25s ease;
+}
+
+.card-zoom:hover,
+.card-view:hover {
+  background: rgba(0,0,0,.7);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.32);
+}
+
+.card-zoom:active,
+.card-view:active {
+  transform: translateY(0);
+}
+
+.card-zoom:focus-visible,
+.card-view:focus-visible {
+  outline: 2px solid rgba(255, 220, 120, .85);
+  outline-offset: 3px;
+}
+
+/* tamanho do ícone (SVG) */
+.card-zoom svg,
+.card-view svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+/* zona clicável do preview (só organização visual) */
+.card-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
 }
 
 /* Card link wrapper */
@@ -560,20 +622,82 @@ h2, .hero-headline {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
-    padding-bottom: 3.5rem; /* abre espaço para o botão */
+    padding-bottom: 1rem; /* abre espaço para o botão */
     position: relative;     /* referencia para o botão */
 }
 
-.card-view {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+/* zona clicável do preview (só organização visual) */
+.card-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
 }
 
+/* botão de lupa — flutuante, clean e legível */
+.card-zoom,
+.card-view { /* compat: caso ainda exista .card-view */
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--grad);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+  isolation: isolate;
+  transition: background .25s ease, transform .2s ease, box-shadow .25s ease;
+}
+
+/* Ícone (SVG) do mesmo peso visual dos cards/services */
+.card-zoom svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;   /* branco */
+  stroke-width: 1.75;
+}
+
+
+.card-zoom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0));
+  pointer-events: none;
+}
+
+.card-zoom:hover,
 .card-view:hover {
-  box-shadow:
-    0 6px 18px rgba(0,0,0,0.35),
-    0 0 12px rgba(255,190,50,0.55);
+    background: rgba(0,0,0,.45) !important; /* volta para o normal */
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.32);
+}
+
+.card-zoom:active,
+.card-view:active {
+  transform: translateY(0);
+}
+
+.card-zoom:focus-visible,
+.card-view:focus-visible {
+  outline: 2px solid rgba(255, 220, 120, .85);
+  outline-offset: 3px;
+}
+
+/* tamanho do ícone (SVG) */
+.card-zoom svg,
+.card-view svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
 }
 
 .card h3 {
@@ -786,11 +910,22 @@ footer {
 .lightbox[hidden], .lb-backdrop[hidden] { display: none; }
 
 /* conteúdo */
-.lb-figure { grid-area: media; margin: 0; max-width: 95vw; max-height: 90vh; }
+.lb-figure { 
+    grid-area: media; 
+    margin: 0; 
+    max-width: 95vw; 
+    max-height: 90vh; 
+}
+
 .lb-figure img {
-  max-width: 95vw; max-height: 80vh;
-  width: auto; height: auto; object-fit: contain; border-radius: 8px;
-  box-shadow: 0 12px 32px rgba(0,0,0,.5);
+  max-width: 95vw; 
+  max-height: 80vh;
+  width: auto; 
+  height: auto; 
+  object-fit: contain; 
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.55);
 }
 .lb-figure figcaption {
   color: #eee; text-align: center; margin-top: .5rem; font-size: .95rem;
@@ -803,21 +938,37 @@ footer {
   margin: 1rem;
   font-size: 2rem;
   line-height: 1;
-  width: 44px; height: 44px;
-  border: 0; border-radius: 10px;
+  width: 44px; 
+  height: 44px;
+  border: 0; 
+  border-radius: 10px;
   background: rgba(255,255,255,.08);
-  color: #fff; cursor: pointer;
+  color: #fff; 
+  cursor: pointer;
+  transition: background .2s ease, transform .15s ease;
 }
 
 /* setas */
 .lb-nav {
   align-self: center;
-  width: 44px; height: 44px;
-  border: 0; border-radius: 10px;
+  width: 44px; 
+  height: 44px;
+  border: 0; 
+  border-radius: 10px;
   background: rgba(255,255,255,.08);
-  color: #fff; font-size: 1.6rem; line-height: 1;
+  color: #fff; 
+  font-size: 1.6rem; 
+  line-height: 1;
   cursor: pointer;
+  transition: background .2s ease, transform .15s ease;
 }
+
+.lb-close:focus-visible,
+.lb-nav:focus-visible {
+  outline: 2px solid rgba(255, 220, 120, .85);
+  outline-offset: 3px;
+}
+
 .lb-nav.prev { grid-area: prev; justify-self: start; margin-left: 1rem; }
 .lb-nav.next { grid-area: next; justify-self: end; margin-right: 1rem; }
 
@@ -881,7 +1032,18 @@ footer {
     filter: brightness(1.05);
     box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 14px rgba(255,190,50,.4);
   }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgb(0 0 0 / .18); }
+  .card:hover { 
+    transform: translateY(-6px); 
+    box-shadow: 0 12px 24px rgb(0 0 0 / .18); 
+  }
+
+  .card-zoom:hover {
+    filter: brightness(1.05);
+    box-shadow:
+      0 12px 24px rgba(0,0,0,.22),
+      0 0 14px rgba(255,190,50,.35);
+    transform: translateY(-1px);
+  }
 }
 
 /* --- tablet-ish --- */
@@ -1024,6 +1186,16 @@ footer {
     nav {
         backdrop-filter: blur(6px);
     }
+
+    .card-zoom,
+  .card-view {
+    width: 48px;
+    height: 48px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .card-zoom svg { width: 24px; height: 24px; }
+
 }
 
 .modal__backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(2px);z-index:9997}
@@ -1032,6 +1204,32 @@ footer {
 .modal__card{background:#fff;color:#111;max-width:420px;width:90vw;border-radius:14px;padding:1.25rem;box-shadow:0 18px 40px rgba(0,0,0,.35);text-align:center}
 .modal__card h3{margin:.25rem 0 .5rem;color:var(--deep-red)}
 .no-scroll{overflow:hidden}
+
+/* === PATCH: Lupa sempre dourada, sem cinza no hover === */
+.grid .card .card-zoom {
+  background: var(--grad) !important;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+}
+
+.grid .card .card-zoom:hover,
+.grid .card .card-zoom:active,
+.grid .card .card-zoom:focus {
+  background: var(--grad) !important;   /* mantém o gradiente */
+}
+
+/* brilho sutil sem trocar o fundo */
+@media (hover:hover) and (pointer:fine) {
+  .grid .card .card-zoom:hover {
+    filter: brightness(1.05);
+    box-shadow:
+      0 12px 24px rgba(0,0,0,.22),
+      0 0 14px rgba(255,190,50,.35);
+    transform: translateY(-1px);
+  }
+}
+
 /* 
 ██████████████████████████████████████████████
 [ STYLE_SHEET END_LOG :: NEIHN_v2025.10 ]

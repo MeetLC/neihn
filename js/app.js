@@ -147,6 +147,90 @@ if (nav && btn) {
     }
   });
 })();
+
+// ===== Portfólio: card clicável + lupa + lightbox =====
+(() => {
+  const cards = Array.from(document.querySelectorAll('.card[data-full]'));
+  if (!cards.length) return;
+
+  // Elementos do lightbox
+  const lbBackdrop = document.getElementById('lbBackdrop');
+  const lightbox   = document.getElementById('lightbox');
+  const lbImg      = document.getElementById('lbImg');
+  const lbCaption  = document.getElementById('lbCaption');
+  const lbClose    = document.getElementById('lbClose');
+  const lbPrev     = document.getElementById('lbPrev');
+  const lbNext     = document.getElementById('lbNext');
+
+  let index = -1;
+
+  const show = (i) => {
+    if (i < 0 || i >= cards.length) return;
+    index = i;
+    const card   = cards[i];
+    const full   = card.dataset.full;
+    const title  = card.dataset.title || '';
+    const imgAlt = card.querySelector('img')?.alt || title;
+
+    lbImg.src = full;
+    lbImg.alt = imgAlt;
+    lbCaption.textContent = title;
+  };
+
+  const open = (i) => {
+    show(i);
+    lbBackdrop.hidden = false;
+    lightbox.hidden = false;
+    document.body.classList.add('no-scroll');
+  };
+
+  const close = () => {
+    lbBackdrop.hidden = true;
+    lightbox.hidden = true;
+    document.body.classList.remove('no-scroll');
+  };
+
+  const next = () => show((index + 1) % cards.length);
+  const prev = () => show((index - 1 + cards.length) % cards.length);
+
+  // Clique no card inteiro e na lupa
+  cards.forEach((card, i) => {
+    card.addEventListener('click', () => open(i));
+
+    const zoomBtn = card.querySelector('.card-zoom');
+    if (zoomBtn) {
+      zoomBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        open(i);
+      });
+    }
+  });
+
+  // Acessibilidade: foco via teclado (Enter/Espaço)
+  cards.forEach((card, i) => {
+    card.tabIndex = 0;
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open(i);
+      }
+    });
+  });
+
+  // Controles do lightbox
+  lbBackdrop?.addEventListener('click', close);
+  lbClose?.addEventListener('click', close);
+  lbNext?.addEventListener('click', next);
+  lbPrev?.addEventListener('click', prev);
+
+  // Teclado no lightbox
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft')  prev();
+  });
+})();
 /* 
 ██████████████████████████████████████████████
 [ END_LOG :: NEIHN_v2025.10 ]
