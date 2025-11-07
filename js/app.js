@@ -7,59 +7,113 @@
 ██████████████████████████████████████████████
 */
 
-// ===========================
-// Navbar responsiva / mobile
-// ===========================
-const btn = document.getElementById('responsiveMenu');
-const nav = document.querySelector('#primary-nav');
+/* ===========================
+   Helpers
+=========================== */
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const on = (el, ev, fn, opt) => el && el.addEventListener(ev, fn, opt);
+const setHidden = (el, v) => { if (el) el.hidden = !!v; };
 
-if (nav && btn) {
-  // Garantir atributos de acessibilidade (caso algo não esteja no HTML)
- 
+/* Foco preso dentro de um container (modal/lightbox) */
+function trapFocus(container) {
+  const focusables = $$(
+    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+    container
+  );
+  const first = focusables[0];
+  const last  = focusables[focusables.length - 1];
+
+  function cycle(e) {
+    if (e.key !== 'Tab') return;
+    if (!focusables.length) return;
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  }
+  container.__trapHandler = cycle;
+  document.addEventListener('keydown', cycle);
+  first?.focus();
+}
+function untrapFocus(container) {
+  if (container?.__trapHandler) {
+    document.removeEventListener('keydown', container.__trapHandler);
+    delete container.__trapHandler;
+  }
+}
+
+/* ===========================
+   Navbar responsiva / mobile
+=========================== */
+(() => {
+  const btn = $('#responsiveMenu');
+  const nav = $('#primary-nav');
+  if (!btn || !nav) return;
+
+  // Acessibilidade garantida
   btn.setAttribute('aria-controls', 'primary-nav');
   btn.setAttribute('aria-expanded', 'false');
   btn.setAttribute('aria-label', 'Abrir menu');
 
-  // Abrir / fechar menu
-  btn.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    btn.classList.toggle('active', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
-    btn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  const openMenu  = () => {
+    nav.classList.add('open');
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Fechar menu');
+    document.body.classList.add('no-scroll');
+  };
+  const closeMenu = () => {
+    nav.classList.remove('open');
+    btn.classList.remove('active');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Abrir menu');
+    document.body.classList.remove('no-scroll');
+  };
+  const toggleMenu = () => (nav.classList.contains('open') ? closeMenu() : openMenu());
+
+  on(btn, 'click', toggleMenu);
+
+  // Fechar ao clicar num link
+  $$('#primary-nav a', nav).forEach(a => on(a, 'click', closeMenu));
+
+  // Fechar ao clicar fora do menu (somente quando aberto)
+  on(document, 'click', (e) => {
+    if (!nav.classList.contains('open')) return;
+    if (nav.contains(e.target) || btn.contains(e.target)) return;
+    closeMenu();
   });
 
-  // Fechar quando clicar em um link do menu
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.setAttribute('aria-label', 'Abrir menu');
-    });
+  // Fechar com ESC
+  on(document, 'keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) closeMenu();
   });
-}
+})();
 
-;
-
-// ===== Formulário: AJAX + Modal Obrigado (hardened) =====
+/* =============================================
+   Formulário: AJAX + Modal "Obrigado" (hardened)
+============================================= */
 (() => {
-  const form = document.getElementById('contactForm');
+  const form = $('#contactForm');
   if (!form) return;
 
-  // 1) Status: cria se não existir
-  let status = document.getElementById('formStatus');
+  // Status (ARIA)
+  let status = $('#formStatus');
   if (!status) {
     status = document.createElement('p');
     status.id = 'formStatus';
     status.setAttribute('role', 'status');
     status.setAttribute('aria-live', 'polite');
+    status.setAttribute('aria-atomic', 'true');
     form.insertAdjacentElement('afterend', status);
   }
+  const setStatus = (msg) => { status.textContent = msg || ''; };
 
-  // 2) Modal: pega se existir, senão cria
-  let back   = document.getElementById('thanksBackdrop');
-  let modal  = document.getElementById('thanksModal');
-  let closeB = document.getElementById('thanksClose');
+  // Modal (usa existente ou cria)
+  let back   = $('#thanksBackdrop');
+  let modal  = $('#thanksModal');
+  let closeB = $('#thanksClose');
 
   if (!back || !modal || !closeB) {
     const frag = document.createRange().createContextualFragment(`
@@ -74,44 +128,43 @@ if (nav && btn) {
       </div>
     `);
     document.body.appendChild(frag);
-    back   = document.getElementById('thanksBackdrop');
-    modal  = document.getElementById('thanksModal');
-    closeB = document.getElementById('thanksClose');
+    back   = $('#thanksBackdrop');
+    modal  = $('#thanksModal');
+    closeB = $('#thanksClose');
   }
 
-  const onKey = e => { if (e.key === 'Escape') closeModal(); };
   const openModal = () => {
-    back.hidden = false;
-    modal.hidden = false;
+    setHidden(back, false);
+    setHidden(modal, false);
     document.body.classList.add('no-scroll');
-    closeB?.focus();
-    document.addEventListener('keydown', onKey);
+    trapFocus(modal);
   };
   const closeModal = () => {
-    back.hidden = true;
-    modal.hidden = true;
+    setHidden(back, true);
+    setHidden(modal, true);
     document.body.classList.remove('no-scroll');
-    document.removeEventListener('keydown', onKey);
+    untrapFocus(modal);
   };
 
-  back?.addEventListener('click', closeModal);
-  closeB?.addEventListener('click', closeModal);
+  on(back,   'click', closeModal);
+  on(closeB, 'click', closeModal);
+  on(document, 'keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
 
-  // 3) Envio com fetch + proteção de múltiplos cliques + timeout
+  // Envio com fetch + proteção + timeout
   let sending = false;
-
-  form.addEventListener('submit', async (e) => {
+  on(form, 'submit', async (e) => {
     e.preventDefault();
     if (sending) return;
     sending = true;
 
-    const submitBtn = form.querySelector('button[type="submit"], button, input[type="submit"]');
+    const submitBtn = form.querySelector('button[type="submit"], input[type="submit"], button');
     const original  = submitBtn?.textContent;
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Enviando…'; }
+    setStatus('');
 
-    submitBtn && (submitBtn.disabled = true, submitBtn.textContent = 'Enviando…');
-    status.textContent = '';
-
-    // Timeout educado (12s) para redes lerdas
+    // Timeout (12s) — evita travar em rede lenta
     const ctrl = new AbortController();
     const tId  = setTimeout(() => ctrl.abort(), 12000);
 
@@ -125,112 +178,117 @@ if (nav && btn) {
 
       if (resp.ok) {
         form.reset();
+        setStatus('Mensagem enviada com sucesso.');
         openModal();
-        status.textContent = 'Mensagem enviada com sucesso.';
       } else {
         let msg = 'Não foi possível enviar. Tente novamente.';
         try {
           const data = await resp.json();
-          if (data?.errors?.length) msg = data.errors.map(e => e.message).join(' ');
-        } catch {}
-        status.textContent = msg;
+          if (Array.isArray(data?.errors) && data.errors.length) {
+            msg = data.errors.map(e => e.message).join(' ');
+          }
+        } catch {/* ignora JSON inválido */}
+        setStatus(msg);
       }
     } catch (err) {
-      status.textContent = (err.name === 'AbortError')
+      setStatus(err?.name === 'AbortError'
         ? 'Tempo de rede esgotado. Tente novamente.'
-        : 'Sem conexão ou bloqueio de rede.';
+        : 'Sem conexão ou bloqueio de rede.');
       console.error('[Form]', err);
     } finally {
       clearTimeout(tId);
-      submitBtn && (submitBtn.disabled = false, submitBtn.textContent = original || 'Enviar');
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = original || 'Enviar'; }
       sending = false;
     }
   });
 })();
 
-// ===== Portfólio: card clicável + lupa + lightbox =====
+/* ==================================
+   Portfólio: cards + lupa + lightbox
+================================== */
 (() => {
-  const cards = Array.from(document.querySelectorAll('.card[data-full]'));
+  const cards = $$('.card[data-full]');
   if (!cards.length) return;
 
-  // Elementos do lightbox
-  const lbBackdrop = document.getElementById('lbBackdrop');
-  const lightbox   = document.getElementById('lightbox');
-  const lbImg      = document.getElementById('lbImg');
-  const lbCaption  = document.getElementById('lbCaption');
-  const lbClose    = document.getElementById('lbClose');
-  const lbPrev     = document.getElementById('lbPrev');
-  const lbNext     = document.getElementById('lbNext');
+  // Lightbox elems
+  const lbBackdrop = $('#lbBackdrop');
+  const lightbox   = $('#lightbox');
+  const lbImg      = $('#lbImg');
+  const lbCaption  = $('#lbCaption');
+  const lbClose    = $('#lbClose');
+  const lbPrev     = $('#lbPrev');
+  const lbNext     = $('#lbNext');
+
+  // Cache dos dados dos cards
+  const items = cards.map(card => ({
+    full:  card.dataset.full,
+    title: card.dataset.title || '',
+    alt:   card.querySelector('img')?.alt || card.dataset.title || ''
+  }));
 
   let index = -1;
 
   const show = (i) => {
-    if (i < 0 || i >= cards.length) return;
+    if (i < 0 || i >= items.length) return;
     index = i;
-    const card   = cards[i];
-    const full   = card.dataset.full;
-    const title  = card.dataset.title || '';
-    const imgAlt = card.querySelector('img')?.alt || title;
-
-    lbImg.src = full;
-    lbImg.alt = imgAlt;
-    lbCaption.textContent = title;
+    const it = items[i];
+    if (lbImg) {
+      lbImg.src = it.full;
+      lbImg.alt = it.alt;
+    }
+    if (lbCaption) lbCaption.textContent = it.title;
   };
 
   const open = (i) => {
     show(i);
-    lbBackdrop.hidden = false;
-    lightbox.hidden = false;
+    setHidden(lbBackdrop, false);
+    setHidden(lightbox, false);
     document.body.classList.add('no-scroll');
+    trapFocus(lightbox);
   };
 
   const close = () => {
-    lbBackdrop.hidden = true;
-    lightbox.hidden = true;
+    setHidden(lbBackdrop, true);
+    setHidden(lightbox, true);
     document.body.classList.remove('no-scroll');
+    if (lbImg) lbImg.src = ''; // libera memória do decode
+    untrapFocus(lightbox);
   };
 
-  const next = () => show((index + 1) % cards.length);
-  const prev = () => show((index - 1 + cards.length) % cards.length);
+  const next = () => show((index + 1) % items.length);
+  const prev = () => show((index - 1 + items.length) % items.length);
 
-  // Clique no card inteiro e na lupa
+  // Click no card e na lupa
   cards.forEach((card, i) => {
-    card.addEventListener('click', () => open(i));
-
-    const zoomBtn = card.querySelector('.card-zoom');
+    on(card, 'click', () => open(i));
+    const zoomBtn = $('.card-zoom', card);
     if (zoomBtn) {
-      zoomBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        open(i);
-      });
+      on(zoomBtn, 'click', (e) => { e.stopPropagation(); open(i); });
     }
-  });
-
-  // Acessibilidade: foco via teclado (Enter/Espaço)
-  cards.forEach((card, i) => {
+    // Teclado (Enter/Espaço) no card
     card.tabIndex = 0;
-    card.addEventListener('keydown', (e) => {
+    on(card, 'keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        open(i);
+        e.preventDefault(); open(i);
       }
     });
   });
 
   // Controles do lightbox
-  lbBackdrop?.addEventListener('click', close);
-  lbClose?.addEventListener('click', close);
-  lbNext?.addEventListener('click', next);
-  lbPrev?.addEventListener('click', prev);
+  on(lbBackdrop, 'click', close);
+  on(lbClose,   'click', close);
+  on(lbNext,    'click', next);
+  on(lbPrev,    'click', prev);
 
   // Teclado no lightbox
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.hidden) return;
+  on(document, 'keydown', (e) => {
+    if (lightbox?.hidden) return;
     if (e.key === 'Escape')     close();
     if (e.key === 'ArrowRight') next();
     if (e.key === 'ArrowLeft')  prev();
   });
 })();
+
 /* 
 ██████████████████████████████████████████████
 [ END_LOG :: NEIHN_v2025.11 ]
