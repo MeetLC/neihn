@@ -1,0 +1,205 @@
+/* =========================================================
+   PORTFOLIO SECTION — NEIHN DESIGN SYSTEM
+   Visual Proof / Work Showcase (CLASSES ORIGINAIS MANTIDAS)
+========================================================= */
+
+/* =========================================================
+   SECTION BASE
+========================================================= */
+
+.portfolio-section{
+  padding:clamp(7rem,10vw,10rem) clamp(2rem,6vw,7rem);
+
+  background:var(--color-bg-light, #f5f1ea);
+  color:var(--color-text-dark, #111);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.portfolio-top{
+  max-width:900px;
+
+  margin-bottom:5rem;
+}
+
+.portfolio-top h2{
+  margin:0;
+
+  font-family:var(--font-title);
+
+  font-size:clamp(2.8rem,5vw,5rem);
+  line-height:1.02;
+
+  letter-spacing:-.05em;
+
+  color:var(--color-text-dark);
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.portfolio-grid{
+  display:grid;
+
+  grid-template-columns:repeat(3, 1fr);
+
+  gap:2rem;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.project-card{
+  display:flex;
+  flex-direction:column;
+
+  position:relative;
+}
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.project-media{
+  position:relative;
+
+  display:block;
+
+  overflow:hidden;
+
+  border-radius:28px;
+
+  aspect-ratio:4/5;
+
+  background:#111;
+
+  transform:translateZ(0);
+}
+
+/* imagem */
+.project-media img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:
+    transform .7s cubic-bezier(.2,.6,.2,1),
+    opacity .5s ease;
+}
+
+/* hover zoom */
+.project-card:hover .project-media img{
+  transform:scale(1.05);
+  opacity:.92;
+}
+
+/* overlay suave */
+.project-media::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.22),
+    transparent 50%
+  );
+
+  pointer-events:none;
+}
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.project-info{
+  margin:1.4rem;
+  padding-inline:.3rem;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+
+  gap:1rem;
+}
+
+/* título */
+.project-info h3{
+  margin:0;
+
+  font-family:var(--font-title);
+
+  font-size:1.5rem;
+
+  font-weight:500;
+
+  letter-spacing:-.03em;
+
+  color:var(--color-text-dark);
+}
+
+/* descrição */
+.project-info p{
+  margin-top:.5rem;
+
+  font-family:var(--font-body);
+  font-size:.92rem;
+
+  color:rgba(0,0,0,.6);
+}
+
+/* index visual */
+.project-index{
+  font-family:var(--font-title);
+
+  font-size:1rem;
+
+  color:rgba(0,0,0,.25);
+}
+
+/* =========================================================
+   HOVER STATE (CARD DEPTH)
+========================================================= */
+
+.project-card{
+  transition:transform .35s ease;
+}
+
+.project-card:hover{
+  transform:translateY(-6px);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:980px){
+
+  .portfolio-grid{
+    grid-template-columns:1fr;
+  }
+
+  .project-media{
+    aspect-ratio:16/10;
+  }
+
+  .portfolio-top h2{
+    font-size:clamp(2.5rem,10vw,4rem);
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    transition:none !important;
+  }
+}

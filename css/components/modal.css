@@ -1,0 +1,193 @@
+/* =========================================================
+   NEIHN DESIGN SYSTEM — MODAL
+   Focused Overlay System (UX-first)
+========================================================= */
+
+/* =========================================================
+   1. BACKDROP
+========================================================= */
+
+.modal__backdrop{
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(3px);
+
+  z-index:var(--z-overlay);
+
+  opacity:1;
+  transition:opacity var(--transition-base);
+}
+
+/* hidden state */
+.modal__backdrop[hidden]{
+  display:none;
+}
+
+/* =========================================================
+   2. MODAL CONTAINER
+========================================================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+
+  display:grid;
+  place-items:center;
+
+  z-index:calc(var(--z-overlay) + 1);
+
+  padding:2rem;
+}
+
+/* hidden */
+.modal[hidden]{
+  display:none;
+}
+
+/* =========================================================
+   3. MODAL CARD
+========================================================= */
+
+.modal__card{
+  width:min(420px, 92vw);
+
+  padding:1.75rem;
+
+  background:var(--color-surface);
+
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+
+  box-shadow:var(--shadow-lg);
+
+  text-align:center;
+
+  animation:modalIn var(--transition-slow) var(--ease-out);
+}
+
+/* =========================================================
+   4. MODAL CONTENT
+========================================================= */
+
+.modal__title{
+  margin:0 0 1rem;
+
+  font-family:var(--font-title);
+  font-size:var(--text-xl);
+
+  color:var(--color-text);
+}
+
+.modal__text{
+  margin:0 0 1.5rem;
+
+  font-family:var(--font-body);
+  font-size:var(--text-sm);
+  line-height:1.8;
+
+  color:var(--color-text-muted);
+}
+
+/* =========================================================
+   5. CLOSE BUTTON
+========================================================= */
+
+.modal__close{
+  position:absolute;
+
+  top:1rem;
+  right:1rem;
+
+  width:40px;
+  height:40px;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-sm);
+
+  background:rgba(255,255,255,.05);
+
+  color:var(--color-text);
+
+  cursor:pointer;
+
+  transition:
+    transform var(--transition-base),
+    background var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.modal__close:hover{
+  transform:translateY(-2px);
+
+  background:rgba(255,255,255,.08);
+
+  border-color:var(--color-border-strong);
+}
+
+/* =========================================================
+   6. ACTION AREA
+========================================================= */
+
+.modal__actions{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+
+  margin-top:1.5rem;
+}
+
+/* integração com botão do sistema */
+.modal .btn{
+  min-width:120px;
+}
+
+/* =========================================================
+   7. ANIMATION
+========================================================= */
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(10px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   8. ACCESSIBILITY FOCUS
+========================================================= */
+
+.modal__close:focus-visible{
+  outline:2px solid var(--color-border-strong);
+  outline-offset:4px;
+}
+
+/* =========================================================
+   9. SCROLL LOCK
+========================================================= */
+
+.no-scroll{
+  overflow:hidden;
+}
+
+/* =========================================================
+   10. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce){
+  .modal__card{
+    animation:none;
+  }
+
+  .modal__close{
+    transition:none;
+  }
+}

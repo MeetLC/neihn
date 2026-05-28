@@ -1,0 +1,187 @@
+/* =========================================================
+   SERVICES SECTION — NEIHN DESIGN SYSTEM
+   Value Proposition Layer (CLASSES ORIGINAIS MANTIDAS)
+========================================================= */
+
+/* =========================================================
+   SECTION BASE
+========================================================= */
+
+.services-section{
+  padding:clamp(7rem,10vw,10rem) clamp(2rem,6vw,7rem);
+
+  background:var(--color-bg-light, #f5f1ea);
+  color:var(--color-text-dark, #111);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.services-top{
+  max-width:900px;
+
+  margin-bottom:6rem;
+}
+
+/* kicker */
+.section-kicker{
+  display:inline-block;
+
+  margin-bottom:1.5rem;
+
+  font-family:var(--font-ui);
+  font-size:var(--text-xs);
+
+  letter-spacing:.18em;
+  text-transform:uppercase;
+
+  color:rgba(0,0,0,.55);
+}
+
+/* título */
+.services-top h2{
+  margin:0;
+
+  font-family:var(--font-title);
+
+  font-size:clamp(2.8rem,5vw,5rem);
+  line-height:1.02;
+
+  letter-spacing:-.05em;
+
+  color:var(--color-text-dark);
+
+  max-width:900px;
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.services-grid{
+  display:grid;
+
+  grid-template-columns:repeat(3, 1fr);
+
+  gap:3rem;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.service-item{
+  position:relative;
+
+  padding-top:2rem;
+
+  border-top:1px solid rgba(0,0,0,.12);
+
+  transition:transform .35s ease;
+}
+
+/* hover leve de elevação */
+.service-item:hover{
+  transform:translateY(-4px);
+}
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.service-number{
+  display:block;
+
+  margin-bottom:1.5rem;
+
+  font-family:var(--font-title);
+  font-size:.95rem;
+
+  color:var(--color-gold);
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.service-item h3{
+  margin:0 0 1rem;
+
+  font-family:var(--font-title);
+
+  font-size:1.8rem;
+
+  font-weight:500;
+
+  letter-spacing:-.03em;
+
+  color:var(--color-text-dark);
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.service-item p{
+  margin:0;
+
+  font-family:var(--font-body);
+  font-size:var(--text-md);
+
+  line-height:1.9;
+
+  color:rgba(0,0,0,.65);
+}
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.service-item ul{
+  margin-top:2rem;
+  padding:0;
+
+  list-style:none;
+}
+
+.service-item li{
+  padding:.6rem 0;
+
+  border-bottom:1px solid rgba(0,0,0,.06);
+
+  font-family:var(--font-body);
+  font-size:.92rem;
+
+  color:rgba(0,0,0,.65);
+}
+
+/* remove última linha visual */
+.service-item li:last-child{
+  border-bottom:none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:980px){
+
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-top h2{
+    font-size:clamp(2.5rem,10vw,4rem);
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    transition:none !important;
+  }
+}

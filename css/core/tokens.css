@@ -1,0 +1,125 @@
+/* =========================================================
+   NEIHN DESIGN SYSTEM — TOKENS
+   Foundation Layer (Single Source of Truth)
+========================================================= */
+
+:root{
+
+/* =========================================================
+   1. COLOR SYSTEM
+========================================================= */
+
+  /* base */
+  --color-bg:#0a0a0a;
+  --color-surface:#111111;
+
+  /* text */
+  --color-text:#f5f1ea;
+  --color-text-muted:rgba(255,255,255,.72);
+  --color-text-soft:rgba(255,255,255,.5);
+
+  /* brand */
+  --color-gold:#f5b300;
+  --color-accent:#ff4b1f;
+  --color-deep-red:#6e0101;
+
+  /* borders */
+  --color-border:rgba(255,255,255,.08);
+  --color-border-strong:rgba(255,255,255,.18);
+
+  /* gradients */
+  --gradient-primary:
+    linear-gradient(
+      90deg,
+      #f5b300,
+      #ff4b1f
+    );
+
+  --gradient-soft:
+    radial-gradient(
+      circle at top right,
+      rgba(245,179,0,.18),
+      transparent 45%
+    );
+
+/* =========================================================
+   2. TYPOGRAPHY
+========================================================= */
+
+  --font-title:"Libre Franklin",system-ui,sans-serif;
+  --font-body:"Cambay",system-ui,sans-serif;
+  --font-ui:"Nunito Sans",system-ui,sans-serif;
+
+/* =========================================================
+   3. TYPE SCALE (OPTIONAL BUT POWERFUL)
+========================================================= */
+
+  --text-xs:.72rem;
+  --text-sm:.78rem;
+  --text-md:1rem;
+  --text-lg:1.25rem;
+  --text-xl:1.8rem;
+  --text-2xl:2.5rem;
+  --text-3xl:3.5rem;
+  --text-4xl:5rem;
+  --text-5xl:8rem;
+
+/* =========================================================
+   4. SPACING SYSTEM (8pt BASED)
+========================================================= */
+
+  --space-1:.5rem;
+  --space-2:1rem;
+  --space-3:1.5rem;
+  --space-4:2rem;
+  --space-5:3rem;
+  --space-6:5rem;
+  --space-7:8rem;
+  --space-8:10rem;
+
+/* =========================================================
+   5. RADIUS SYSTEM
+========================================================= */
+
+  --radius-sm:10px;
+  --radius-md:18px;
+  --radius-lg:32px;
+  --radius-xl:48px;
+
+/* =========================================================
+   6. SHADOW SYSTEM
+========================================================= */
+
+  --shadow-sm:0 4px 10px rgba(0,0,0,.25);
+  --shadow-md:0 12px 30px rgba(0,0,0,.35);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.45);
+  --shadow-glow:0 0 20px rgba(245,179,0,.25);
+
+/* =========================================================
+   7. TRANSITIONS
+========================================================= */
+
+  --transition-fast:.2s ease;
+  --transition-base:.35s ease;
+  --transition-slow:.6s cubic-bezier(.2,.6,.2,1);
+
+/* =========================================================
+   8. LAYOUT
+========================================================= */
+
+  --container:1440px;
+  --container-sm:1100px;
+
+  --header-h:80px;
+
+/* =========================================================
+   9. Z-INDEX SCALE
+========================================================= */
+
+  --z-base:1;
+  --z-content:10;
+  --z-header:100;
+  --z-overlay:1000;
+  --z-modal:9999;
+
+}

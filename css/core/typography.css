@@ -1,0 +1,201 @@
+/* =========================================================
+   NEIHN DESIGN SYSTEM — TYPOGRAPHY
+   Semantic + Scalable Type System
+========================================================= */
+
+/* =========================================================
+   1. BASE TEXT
+========================================================= */
+
+body{
+  font-family:var(--font-body);
+  font-size:var(--text-md);
+  line-height:1.7;
+  color:var(--color-text);
+}
+
+/* =========================================================
+   2. HEADINGS (SEMÂNTICOS)
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  margin:0;
+
+  font-family:var(--font-title);
+  letter-spacing:-.04em;
+  text-wrap:balance;
+
+  color:var(--color-text);
+}
+
+/* HERO TITLE */
+h1{
+  font-size:var(--text-5xl);
+  line-height:.92;
+}
+
+/* SECTION TITLE */
+h2{
+  font-size:var(--text-3xl);
+  line-height:1.02;
+}
+
+/* SUBSECTION */
+h3{
+  font-size:var(--text-xl);
+  line-height:1.1;
+}
+
+/* SMALL HEADINGS */
+h4{
+  font-size:var(--text-lg);
+  line-height:1.2;
+}
+
+/* =========================================================
+   3. PARAGRAPH SYSTEM
+========================================================= */
+
+p{
+  margin:0;
+
+  font-family:var(--font-body);
+  font-size:var(--text-md);
+  line-height:1.9;
+
+  color:var(--color-text-muted);
+}
+
+/* paragraph leve */
+p.small{
+  font-size:var(--text-sm);
+  color:var(--color-text-soft);
+}
+
+/* =========================================================
+   4. UI TEXT (INTERFACE)
+========================================================= */
+
+.text-ui{
+  font-family:var(--font-ui);
+  font-size:var(--text-sm);
+
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+/* labels de seção */
+.text-label{
+  font-family:var(--font-ui);
+  font-size:var(--text-xs);
+
+  letter-spacing:.18em;
+  text-transform:uppercase;
+
+  color:var(--color-text-soft);
+}
+
+/* =========================================================
+   5. HERO TYPOGRAPHY (ESPECÍFICO CONTROLADO)
+========================================================= */
+
+.hero-title{
+  font-family:var(--font-title);
+  font-size:var(--text-5xl);
+  line-height:.92;
+  letter-spacing:-.05em;
+}
+
+.hero-subtitle{
+  font-size:var(--text-md);
+  line-height:1.9;
+  color:var(--color-text-muted);
+}
+
+/* =========================================================
+   6. LINKS
+========================================================= */
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+a:hover{
+  color:var(--color-text);
+}
+
+a:focus-visible{
+  outline:2px solid var(--color-border-strong);
+  outline-offset:4px;
+  border-radius:8px;
+}
+
+/* link sutil (UI) */
+.link{
+  font-family:var(--font-ui);
+  font-size:var(--text-sm);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+
+  color:var(--color-text-muted);
+
+  transition:color var(--transition-base);
+}
+
+.link:hover{
+  color:var(--color-text);
+}
+
+/* =========================================================
+   7. LISTAS
+========================================================= */
+
+ul,
+ol{
+  margin:0;
+  padding:0;
+
+  color:var(--color-text-muted);
+
+  line-height:1.9;
+}
+
+li{
+  margin:0;
+}
+
+/* =========================================================
+   8. EMPHASIS
+========================================================= */
+
+strong{
+  color:var(--color-text);
+  font-weight:600;
+}
+
+em{
+  font-style:italic;
+  color:var(--color-text-soft);
+}
+
+/* =========================================================
+   9. SPECIAL TEXT STATES
+========================================================= */
+
+.text-muted{
+  color:var(--color-text-muted);
+}
+
+.text-soft{
+  color:var(--color-text-soft);
+}
+
+.text-accent{
+  color:var(--color-gold);
+}

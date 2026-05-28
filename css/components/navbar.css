@@ -1,0 +1,213 @@
+/* =========================================================
+   NAVBAR — REVISADO (CLASSES ORIGINAIS MANTIDAS)
+========================================================= */
+
+.navbar{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:1000;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:1.25rem 4rem;
+
+  background:rgba(10,10,10,.35);
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(14px);
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+
+  text-decoration:none;
+
+  font-family:var(--font-ui);
+
+  color:color-mix(in oklab, var(--color-gold), #fff 35%);
+}
+
+.nav-logo img{
+  width:22px;
+  height:auto;
+}
+
+.nav-logo span{
+  font-size:.78rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.nav-links ul{
+  list-style:none;
+
+  display:flex;
+  align-items:center;
+  gap:2.75rem;
+
+  margin:0;
+  padding:0;
+}
+
+.nav-links ul li{
+  position:relative;
+}
+
+.nav-links ul li a{
+  position:relative;
+
+  font-family:var(--font-ui);
+  font-size:.78rem;
+
+  letter-spacing:.14em;
+  text-transform:uppercase;
+
+  color:color-mix(in oklab, var(--color-gold), #fff 35%);
+
+  text-decoration:none;
+
+  transition:
+  color var(--transition-base);
+}
+
+/* hover */
+.nav-links ul li a:hover{
+  color:#ffffff;
+}
+
+/* focus accessibility */
+.nav-links ul li a:focus-visible{
+  outline:2px solid color-mix(in oklab, var(--color-gold), #fff 35%);
+  outline-offset:4px;
+  border-radius:8px;
+}
+
+/* estado ativo */
+.nav-links ul li a.active,
+.nav-links ul li a[aria-current="page"]{
+  color:var(--color-gold);
+}
+
+/* underline ativo */
+.nav-links ul li a.active::after{
+  content:"";
+
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  width:100%;
+  height:1px;
+
+  background:var(--color-gold);
+}
+
+/* =========================================================
+   BOTÃO MOBILE
+========================================================= */
+
+#responsiveMenu{
+  display:none;
+
+  position:relative;
+
+  width:44px;
+  height:44px;
+
+  border:0;
+  background:transparent;
+
+  cursor:pointer;
+}
+
+#responsiveMenu svg{
+  width:2.5rem;
+  height:2.5rem;
+
+  color:var(--color-gold);
+
+  position:absolute;
+  inset:.75rem;
+}
+
+#responsiveMenu .openIcon{
+  display:block;
+}
+
+#responsiveMenu .closeIcon{
+  display:none;
+}
+
+#responsiveMenu.active .openIcon{
+  display:none;
+}
+
+#responsiveMenu.active .closeIcon{
+  display:block;
+}
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+@media (max-width:768px){
+
+  .navbar{
+    padding:.85rem 1rem;
+  }
+
+  #responsiveMenu{
+    display:grid;
+    place-items:center;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:var(--header-h);
+    left:0;
+    right:0;
+    z-index:998;
+
+    background:rgba(0, 0, 0, 0.955);
+
+    opacity:0;
+    transform:translateY(-10px);
+    pointer-events:none;
+
+    transition:
+    opacity var(--transition-base),
+    transform var(--transition-base);
+  }
+
+  .nav-links.open{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+
+  .nav-links ul{
+    flex-direction:column;
+    gap:.25rem;
+
+    padding:1rem;
+  }
+
+  .nav-links ul li a{
+    display:block;
+    padding:1rem;
+    border-radius:10px;
+  }
+
+}

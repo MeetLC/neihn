@@ -1,0 +1,21 @@
+@import url("./core/reset.css?v=1.0");
+@import url("./core/tokens.css?v=1.0");
+@import url("./core/typography.css?v=1.0");
+@import url("./core/animations.css?v=1.0");
+@import url("./core/utilities.css?v=1.0");
+
+@import url("./layout/grid.css?v=1.0");
+@import url("./layout/footer.css?v=1.0");
+
+@import url("./components/buttons.css?v=1.0");
+@import url("./components/navbar.css?v=1.0");
+@import url("./components/cards.css?v=1.0");
+@import url("./components/forms.css?v=1.0");
+@import url("./components/modal.css?v=1.0");
+@import url("./components/lightbox.css?v=1.0");
+
+@import url("./sections/hero.css?v=1.2");
+@import url("./sections/about.css?v=1.0");
+@import url("./sections/portfolio.css?v=1.0");
+@import url("./sections/services.css?v=1.0");
+@import url("./sections/contact.css?v=1.0");
