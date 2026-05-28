@@ -1,7 +1,7 @@
 @import url("./core/reset.css?v=1.0");
 @import url("./core/tokens.css?v=1.0");
 @import url("./core/typography.css?v=1.0");
-@import url("./core/animations.css?v=1.0");
+@import url("./core/animations.css");
 @import url("./core/utilities.css?v=1.0");
 
 @import url("./layout/grid.css?v=1.0");

@@ -221,9 +221,12 @@
 ========================================================= */
 
 @media (max-width:980px){
+  .hero{
+    min-height:88svh;
+  }
 
   .hero-visual img{
-    object-position:92% center;
+    object-position:78% center;
 
     transform:scale(1);
   }

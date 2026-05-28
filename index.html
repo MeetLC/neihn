@@ -43,7 +43,7 @@
 
     <!-- ===== Styles & Script ===== -->
     <link rel="stylesheet" href="css/main.css?v=2026.05.27.1604">
-    <script src="js/app.js?v=2026.05.28.1828" defer></script>
+    <script src="js/app.js?v=2026.05.28.1901" defer></script>
 
     <!-- ===== Structured Data (JSON-LD) ===== -->
     <script type="application/ld+json">
@@ -138,7 +138,19 @@
         <section class="hero">
 
   <div class="hero-visual">
-    <img src="img/n.webp" alt="Neihn visual identity" loading="eager">
+    <picture>
+
+  <source
+    media="(max-width: 768px)"
+    srcset="img/n-mobile.webp">
+
+  <img
+    src="img/n.webp"
+    alt="Neihn visual identity"
+    loading="eager"
+    fetchpriority="high">
+
+</picture>
     <div class="hero-overlay"></div>
   </div>
 
