@@ -193,6 +193,9 @@
   .portfolio-top h2{
     font-size:clamp(2.5rem,10vw,4rem);
   }
+  .card1 .project-media img{
+    object-position: top center;
+  }
 }
 
 /* =========================================================
