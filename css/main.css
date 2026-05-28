@@ -1,11 +1,22 @@
+/* =========================================================
+   CORE
+========================================================= */
+
 @import url("./core/reset.css");
 @import url("./core/tokens.css");
 @import url("./core/typography.css");
 @import url("./core/animations.css");
 @import url("./core/utilities.css");
 
+/* =========================================================
+   LAYOUT
+========================================================= */
+
 @import url("./layout/grid.css");
-@import url("./layout/footer.css");
+
+/* =========================================================
+   COMPONENTS
+========================================================= */
 
 @import url("./components/buttons.css");
 @import url("./components/navbar.css");
@@ -14,8 +25,18 @@
 @import url("./components/modal.css");
 @import url("./components/lightbox.css");
 
+/* =========================================================
+   SECTIONS
+========================================================= */
+
 @import url("./sections/hero.css");
 @import url("./sections/about.css");
-@import url("./sections/portfolio.css");
 @import url("./sections/services.css");
+@import url("./sections/portfolio.css");
 @import url("./sections/contact.css");
+
+/* =========================================================
+   GLOBAL LAYOUT PARTS
+========================================================= */
+
+@import url("./layout/footer.css");
