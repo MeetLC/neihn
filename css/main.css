@@ -1,21 +1,21 @@
-@import url("./core/reset.css?v=2026.05.28.1908");
-@import url("./core/tokens.css?v=2026.05.28.1908");
-@import url("./core/typography.css?v=2026.05.28.1908");
-@import url("./core/animations.css?v=2026.05.28.1908");
-@import url("./core/utilities.css?v=2026.05.28.1908");
+@import url("./core/reset.css");
+@import url("./core/tokens.css");
+@import url("./core/typography.css");
+@import url("./core/animations.css");
+@import url("./core/utilities.css");
 
-@import url("./layout/grid.css?v=2026.05.28.1908");
-@import url("./layout/footer.css?v=2026.05.28.1908");
+@import url("./layout/grid.css");
+@import url("./layout/footer.css");
 
-@import url("./components/buttons.css?v=2026.05.28.1908");
-@import url("./components/navbar.css?v=2026.05.28.1908");
-@import url("./components/cards.css?v=2026.05.28.1908");
-@import url("./components/forms.css?v=2026.05.28.1908");
-@import url("./components/modal.css?v=2026.05.28.1908");
-@import url("./components/lightbox.css?v=2026.05.28.1908");
+@import url("./components/buttons.css");
+@import url("./components/navbar.css");
+@import url("./components/cards.css");
+@import url("./components/forms.css");
+@import url("./components/modal.css");
+@import url("./components/lightbox.css");
 
-@import url("./sections/hero.css?v=2026.05.28.1908");
-@import url("./sections/about.css?v=2026.05.28.1908");
-@import url("./sections/portfolio.css?v=2026.05.28.1908");
-@import url("./sections/services.css?v=2026.05.28.1908");
-@import url("./sections/contact.css?v=2026.05.28.1908");
+@import url("./sections/hero.css");
+@import url("./sections/about.css");
+@import url("./sections/portfolio.css");
+@import url("./sections/services.css");
+@import url("./sections/contact.css");
