@@ -124,10 +124,11 @@
   max-width:480px;
 
   font-family:var(--font-title);
+  font-weight:700;
 
   font-size:clamp(4rem,8vw,8rem);
   line-height:1.04;
-  letter-spacing:-.045em;
+  letter-spacing:-.025em;
 
   color:var(--color-text);
 }
