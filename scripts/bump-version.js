@@ -1,34 +1,76 @@
 import fs from "fs";
+import path from "path";
 
-// arquivo-alvo
-const file = "index.html";
+const root = process.cwd();
+const htmlFiles = ["index.html"];
 
-// timestamp: 2025.11.07.1742
-const now = new Date();
-const version = [
-  now.getFullYear(),
-  String(now.getMonth() + 1).padStart(2, "0"),
-  String(now.getDate()).padStart(2, "0"),
-  String(now.getHours()).padStart(2, "0") + String(now.getMinutes()).padStart(2, "0")
-].join(".");
-
-// lê HTML
-let html = fs.readFileSync(file, "utf8");
-
-// helper: força ?v=YYYY.MM.DD.HHMM (se já existir, substitui; se não existir, acrescenta)
-function bump(assetPath) {
-  // captura caminho com ou sem query (?v=...)
-  const rx = new RegExp(`(${assetPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})(?:\\?v=[^"'>\\s]+)?`, "g");
-  return (str) => str.replace(rx, `$1?v=${version}`);
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-// Ajuste aqui se seus caminhos mudarem
-html = bump("css/style.css")(html); // se o href ainda for "style.css" na raiz, adicione também:
-html = bump("style.css")(html);
+function fileVersion(absPath) {
+  const stat = fs.statSync(absPath);
+  return String(Math.floor(stat.mtimeMs));
+}
 
-html = bump("js/app.js")(html);
-html = bump("app.js")(html);
+function bumpInHtml(html, relPath, version) {
+  const escaped = escapeRegExp(relPath);
+  const rx = new RegExp(`(${escaped})(?:\\?v=[^"'>\\s]+)?`, "g");
+  return html.replace(rx, `$1?v=${version}`);
+}
 
-// grava
-fs.writeFileSync(file, html, "utf8");
-console.log("✅ Versão atualizada para:", version);
+function getImportedCssFiles(mainCssAbs) {
+  const css = fs.readFileSync(mainCssAbs, "utf8");
+  const imports = [];
+  const importRx = /@import\s+url\(["']?(.+?\.css)(?:\?v=[^"']*)?["']?\)/g;
+  let match;
+
+  while ((match = importRx.exec(css)) !== null) {
+    imports.push(match[1]);
+  }
+
+  return imports;
+}
+
+const assets = [
+  "css/main.css",
+  "js/app.js",
+  "img/project1-full.webp",
+];
+
+const versions = {};
+
+for (const rel of assets) {
+  const abs = path.join(root, rel);
+  if (fs.existsSync(abs)) {
+    versions[rel] = fileVersion(abs);
+  }
+}
+
+const mainCssAbs = path.join(root, "css/main.css");
+if (fs.existsSync(mainCssAbs)) {
+  const importedCss = getImportedCssFiles(mainCssAbs);
+  for (const rel of importedCss) {
+    const cleanRel = rel.replace(/^\.\/?/, "");
+    const abs = path.join(root, "css", cleanRel);
+    if (fs.existsSync(abs)) {
+      versions[`css/${cleanRel}`] = fileVersion(abs);
+    }
+  }
+}
+
+for (const htmlName of htmlFiles) {
+  const htmlPath = path.join(root, htmlName);
+  if (!fs.existsSync(htmlPath)) continue;
+
+  let html = fs.readFileSync(htmlPath, "utf8");
+
+  for (const [rel, v] of Object.entries(versions)) {
+    html = bumpInHtml(html, rel, v);
+  }
+
+  fs.writeFileSync(htmlPath, html, "utf8");
+  console.log(`✅ Atualizado ${htmlName}`);
+}
+
+console.log("Versões aplicadas:", versions);
