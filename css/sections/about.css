@@ -10,8 +10,6 @@
 .about-section{
   padding:clamp(6rem,10vw,10rem) clamp(2rem,6vw,7rem);
 
-  display:block;
-
   color:var(--color-text);
 }
 
@@ -68,6 +66,18 @@
   letter-spacing:-.04em;
 
   color:var(--color-text);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* =========================================================

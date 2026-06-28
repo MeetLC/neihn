@@ -15,8 +15,9 @@
 
   /* text */
   --color-text:#f5f1ea;
-  --color-text-muted:rgba(255,255,255,.72);
-  --color-text-soft:rgba(255,255,255,.5);
+  --color-text-muted:rgba(255,255,255,.85);
+  --color-text-soft:rgba(255,255,255,.65);
+  
 
   /* brand */
   --color-gold:#f5b300;
@@ -24,8 +25,8 @@
   --color-deep-red:#6e0101;
 
   /* borders */
-  --color-border:rgba(255,255,255,.08);
-  --color-border-strong:rgba(255,255,255,.18);
+  --color-border:rgba(255,255,255,.14);
+  --color-border-strong:rgba(255,255,255,.30);
 
   /* gradients */
   --gradient-primary:
@@ -54,9 +55,9 @@
    3. TYPE SCALE (OPTIONAL BUT POWERFUL)
 ========================================================= */
 
-  --text-xs:.72rem;
-  --text-sm:.78rem;
-  --text-md:1rem;
+  --text-xs:.82rem;
+  --text-sm:.90rem;
+  --text-md:1.1rem;
   --text-lg:1.25rem;
   --text-xl:1.8rem;
   --text-2xl:2.5rem;

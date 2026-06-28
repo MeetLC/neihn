@@ -27,7 +27,8 @@ h6{
   margin:0;
 
   font-family:var(--font-title);
-  letter-spacing:-.04em;
+  font-weight:700;
+  letter-spacing:0em;
   text-wrap:balance;
 
   color:var(--color-text);
@@ -36,24 +37,29 @@ h6{
 /* HERO TITLE */
 h1{
   font-size:var(--text-5xl);
+  font-weight:700;
   line-height:.92;
+  letter-spacing:-.01em;
 }
 
 /* SECTION TITLE */
 h2{
   font-size:var(--text-3xl);
+  font-weight:700;
   line-height:1.02;
 }
 
 /* SUBSECTION */
 h3{
   font-size:var(--text-xl);
+  font-weight:600;
   line-height:1.1;
 }
 
 /* SMALL HEADINGS */
 h4{
   font-size:var(--text-lg);
+  font-weight:600;
   line-height:1.2;
 }
 
@@ -66,6 +72,7 @@ p{
 
   font-family:var(--font-body);
   font-size:var(--text-md);
+  font-weight:400;
   line-height:1.9;
 
   color:var(--color-text-muted);
@@ -84,7 +91,7 @@ p.small{
 .text-ui{
   font-family:var(--font-ui);
   font-size:var(--text-sm);
-
+  font-weight:600;
   letter-spacing:.14em;
   text-transform:uppercase;
 }
@@ -93,7 +100,7 @@ p.small{
 .text-label{
   font-family:var(--font-ui);
   font-size:var(--text-xs);
-
+  font-weight:600;
   letter-spacing:.18em;
   text-transform:uppercase;
 
@@ -176,7 +183,7 @@ li{
 
 strong{
   color:var(--color-text);
-  font-weight:600;
+  font-weight:700;
 }
 
 em{
