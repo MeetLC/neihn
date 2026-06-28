@@ -7,267 +7,181 @@
    1. DISPLAY
 ========================================================= */
 
-.u-hidden{
-  display:none !important;
-}
-
-.u-block{
-  display:block !important;
-}
-
-.u-inline{
-  display:inline !important;
-}
-
-.u-inline-flex{
-  display:inline-flex !important;
-}
-
-.u-flex{
-  display:flex !important;
-}
-
-.u-grid{
-  display:grid !important;
-}
+.u-hidden       { display: none !important; }
+.u-block        { display: block !important; }
+.u-inline       { display: inline !important; }
+.u-inline-flex  { display: inline-flex !important; }
+.u-flex         { display: flex !important; }
+.u-grid         { display: grid !important; }
 
 /* =========================================================
    2. FLEX HELPERS
 ========================================================= */
 
-.u-flex-center{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-}
-
-.u-flex-between{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:space-between !important;
-}
-
-.u-flex-column{
-  display:flex !important;
-  flex-direction:column !important;
-}
-
-.u-flex-wrap{
-  flex-wrap:wrap !important;
-}
+.u-flex-center  { display: flex !important; align-items: center !important; justify-content: center !important; }
+.u-flex-between { display: flex !important; align-items: center !important; justify-content: space-between !important; }
+.u-flex-column  { display: flex !important; flex-direction: column !important; }
+.u-flex-wrap    { flex-wrap: wrap !important; }
 
 /* =========================================================
    3. ALIGNMENT
 ========================================================= */
 
-.u-text-center{
-  text-align:center !important;
-}
-
-.u-text-left{
-  text-align:left !important;
-}
-
-.u-text-right{
-  text-align:right !important;
-}
+.u-text-center { text-align: center !important; }
+.u-text-left   { text-align: left !important; }
+.u-text-right  { text-align: right !important; }
 
 /* =========================================================
    4. SPACING — MARGIN
 ========================================================= */
 
-.u-m-0{ margin:0 !important; }
-.u-m-1{ margin:.25rem !important; }
-.u-m-2{ margin:.5rem !important; }
-.u-m-3{ margin:1rem !important; }
-.u-m-4{ margin:1.5rem !important; }
-.u-m-5{ margin:2rem !important; }
+.u-m-0 { margin: 0 !important; }
+.u-m-1 { margin: .25rem !important; }
+.u-m-2 { margin: .5rem !important; }
+.u-m-3 { margin: 1rem !important; }
+.u-m-4 { margin: 1.5rem !important; }
+.u-m-5 { margin: 2rem !important; }
 
-.u-mt-1{ margin-top:.25rem !important; }
-.u-mt-2{ margin-top:.5rem !important; }
-.u-mt-3{ margin-top:1rem !important; }
-.u-mt-4{ margin-top:1.5rem !important; }
-.u-mt-5{ margin-top:2rem !important; }
+.u-mt-1 { margin-top: .25rem !important; }
+.u-mt-2 { margin-top: .5rem !important; }
+.u-mt-3 { margin-top: 1rem !important; }
+.u-mt-4 { margin-top: 1.5rem !important; }
+.u-mt-5 { margin-top: 2rem !important; }
 
-.u-mb-1{ margin-bottom:.25rem !important; }
-.u-mb-2{ margin-bottom:.5rem !important; }
-.u-mb-3{ margin-bottom:1rem !important; }
-.u-mb-4{ margin-bottom:1.5rem !important; }
-.u-mb-5{ margin-bottom:2rem !important; }
+.u-mb-1 { margin-bottom: .25rem !important; }
+.u-mb-2 { margin-bottom: .5rem !important; }
+.u-mb-3 { margin-bottom: 1rem !important; }
+.u-mb-4 { margin-bottom: 1.5rem !important; }
+.u-mb-5 { margin-bottom: 2rem !important; }
 
 /* =========================================================
    5. SPACING — PADDING
 ========================================================= */
 
-.u-p-0{ padding:0 !important; }
-.u-p-1{ padding:.25rem !important; }
-.u-p-2{ padding:.5rem !important; }
-.u-p-3{ padding:1rem !important; }
-.u-p-4{ padding:1.5rem !important; }
-.u-p-5{ padding:2rem !important; }
+.u-p-0 { padding: 0 !important; }
+.u-p-1 { padding: .25rem !important; }
+.u-p-2 { padding: .5rem !important; }
+.u-p-3 { padding: 1rem !important; }
+.u-p-4 { padding: 1.5rem !important; }
+.u-p-5 { padding: 2rem !important; }
 
-.u-pt-3{ padding-top:1rem !important; }
-.u-pt-4{ padding-top:1.5rem !important; }
-.u-pt-5{ padding-top:2rem !important; }
+.u-pt-3 { padding-top: 1rem !important; }
+.u-pt-4 { padding-top: 1.5rem !important; }
+.u-pt-5 { padding-top: 2rem !important; }
 
-.u-pb-3{ padding-bottom:1rem !important; }
-.u-pb-4{ padding-bottom:1.5rem !important; }
-.u-pb-5{ padding-bottom:2rem !important; }
+.u-pb-3 { padding-bottom: 1rem !important; }
+.u-pb-4 { padding-bottom: 1.5rem !important; }
+.u-pb-5 { padding-bottom: 2rem !important; }
 
 /* =========================================================
-   6. GAP (FLEX / GRID)
+   6. GAP
 ========================================================= */
 
-.u-gap-1{ gap:.25rem !important; }
-.u-gap-2{ gap:.5rem !important; }
-.u-gap-3{ gap:1rem !important; }
-.u-gap-4{ gap:1.5rem !important; }
-.u-gap-5{ gap:2rem !important; }
+.u-gap-1 { gap: .25rem !important; }
+.u-gap-2 { gap: .5rem !important; }
+.u-gap-3 { gap: 1rem !important; }
+.u-gap-4 { gap: 1.5rem !important; }
+.u-gap-5 { gap: 2rem !important; }
 
 /* =========================================================
    7. WIDTH / HEIGHT
 ========================================================= */
 
-.u-w-100{ width:100% !important; }
-.u-w-auto{ width:auto !important; }
-
-.u-h-100{ height:100% !important; }
+.u-w-100  { width: 100% !important; }
+.u-w-auto { width: auto !important; }
+.u-h-100  { height: 100% !important; }
 
 /* =========================================================
    8. POSITIONING
 ========================================================= */
 
-.u-relative{ position:relative !important; }
-.u-absolute{ position:absolute !important; }
-.u-fixed{ position:fixed !important; }
+.u-relative { position: relative !important; }
+.u-absolute { position: absolute !important; }
+.u-fixed    { position: fixed !important; }
 
 /* =========================================================
    9. VISIBILITY
 ========================================================= */
 
-.u-visible{ visibility:visible !important; }
-.u-invisible{ visibility:hidden !important; }
+.u-visible   { visibility: visible !important; }
+.u-invisible { visibility: hidden !important; }
 
 /* =========================================================
    10. OVERFLOW
 ========================================================= */
 
-.u-overflow-hidden{
-  overflow:hidden !important;
-}
-
-.u-overflow-auto{
-  overflow:auto !important;
-}
+.u-overflow-hidden { overflow: hidden !important; }
+.u-overflow-auto   { overflow: auto !important; }
 
 /* =========================================================
-   11. Z-INDEX SYSTEM
+   11. Z-INDEX
 ========================================================= */
 
-.u-z-1{ z-index:1 !important; }
-.u-z-10{ z-index:10 !important; }
-.u-z-100{ z-index:100 !important; }
-.u-z-1000{ z-index:1000 !important; }
-.u-z-modal{ z-index:9999 !important; }
+.u-z-1    { z-index: 1 !important; }
+.u-z-10   { z-index: 10 !important; }
+.u-z-100  { z-index: 100 !important; }
+.u-z-1000 { z-index: 1000 !important; }
+.u-z-modal { z-index: 9999 !important; }
 
 /* =========================================================
-   12. BORDER HELPERS
+   12. BORDER
 ========================================================= */
 
-.u-border{
-  border:1px solid var(--color-border) !important;
-}
-
-.u-border-none{
-  border:none !important;
-}
+.u-border      { border: 1px solid var(--color-border) !important; }
+.u-border-none { border: none !important; }
 
 /* =========================================================
    13. RADIUS
 ========================================================= */
 
-.u-rounded-sm{ border-radius:var(--radius-sm) !important; }
-.u-rounded-md{ border-radius:var(--radius-md) !important; }
-.u-rounded-lg{ border-radius:var(--radius-lg) !important; }
+.u-rounded-sm { border-radius: var(--radius-sm) !important; }
+.u-rounded-md { border-radius: var(--radius-md) !important; }
+.u-rounded-lg { border-radius: var(--radius-lg) !important; }
 
 /* =========================================================
    14. OPACITY
 ========================================================= */
 
-.u-opacity-0{ opacity:0 !important; }
-.u-opacity-25{ opacity:.25 !important; }
-.u-opacity-50{ opacity:.5 !important; }
-.u-opacity-75{ opacity:.75 !important; }
-.u-opacity-100{ opacity:1 !important; }
+.u-opacity-0   { opacity: 0 !important; }
+.u-opacity-25  { opacity: .25 !important; }
+.u-opacity-50  { opacity: .5 !important; }
+.u-opacity-75  { opacity: .75 !important; }
+.u-opacity-100 { opacity: 1 !important; }
 
 /* =========================================================
    15. SHADOWS
 ========================================================= */
 
-.u-shadow-sm{ box-shadow:var(--shadow-sm) !important; }
-.u-shadow-md{ box-shadow:var(--shadow-md) !important; }
-.u-shadow-lg{ box-shadow:var(--shadow-lg) !important; }
+.u-shadow-sm { box-shadow: var(--shadow-sm) !important; }
+.u-shadow-md { box-shadow: var(--shadow-md) !important; }
+.u-shadow-lg { box-shadow: var(--shadow-lg) !important; }
 
 /* =========================================================
    16. CURSOR
 ========================================================= */
 
-.u-cursor-pointer{
-  cursor:pointer !important;
-}
-
-.u-cursor-default{
-  cursor:default !important;
-}
+.u-cursor-pointer { cursor: pointer !important; }
+.u-cursor-default { cursor: default !important; }
 
 /* =========================================================
    17. USER SELECT
 ========================================================= */
 
-.u-select-none{
-  user-select:none !important;
-}
-
-.u-select-text{
-  user-select:text !important;
-}
+.u-select-none { user-select: none !important; }
+.u-select-text { user-select: text !important; }
 
 /* =========================================================
-   18. ACCESSIBILITY HELPERS
+   18. ACCESSIBILITY
 ========================================================= */
 
-.u-sr-only{
-  position:absolute !important;
-
-  width:1px !important;
-  height:1px !important;
-
-  padding:0 !important;
-  margin:-1px !important;
-
-  overflow:hidden !important;
-  clip:rect(0,0,0,0) !important;
-
-  white-space:nowrap !important;
-  border:0 !important;
-}
-
-/* ===== SCROLL REVEAL ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+.u-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }

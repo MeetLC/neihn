@@ -3,10 +3,6 @@
    Motion System (Subtle, Performant, Controlled)
 ========================================================= */
 
-/* =========================================================
-   1. GLOBAL PRINCIPLE
-========================================================= */
-
 /*
 Regra do sistema:
 - nada exagerado
@@ -16,168 +12,116 @@ Regra do sistema:
 */
 
 /* =========================================================
-   2. BASE TRANSITIONS
+   1. REVEAL SYSTEM (SCROLL ANIMATION)
 ========================================================= */
 
-:root{
-  --ease-out:cubic-bezier(.2,.6,.2,1);
-  --ease-in:cubic-bezier(.4,0,1,1);
-  --ease-standard:ease;
-
-  --motion-fast:.2s;
-  --motion-base:.35s;
-  --motion-slow:.6s;
-}
-
-/* =========================================================
-   3. REVEAL SYSTEM (SCROLL ANIMATION)
-========================================================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(24px);
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
   transition:
     opacity var(--motion-slow) var(--ease-out),
     transform var(--motion-slow) var(--ease-out);
-  will-change:opacity, transform;
+  will-change: opacity, transform;
 }
 
-.reveal.is-visible{
-  opacity:1;
-  transform:none;
+.reveal.visible {
+  opacity: 1;
+  transform: none;
 }
 
-/* variação leve (para hero e títulos) */
-.reveal--soft{
-  transform:translateY(12px);
+/* variação leve (títulos, hero) */
+.reveal--soft {
+  transform: translateY(12px);
 }
 
 /* =========================================================
-   4. HOVER MOTION SYSTEM
+   2. HOVER MOTION SYSTEM
 ========================================================= */
 
-.hover-lift{
+.hover-lift {
   transition:
     transform var(--motion-base) var(--ease-out),
     box-shadow var(--motion-base) var(--ease-out);
 }
 
-.hover-lift:hover{
-  transform:translateY(-3px);
+.hover-lift:hover {
+  transform: translateY(-3px);
 }
 
-/* hover suave (sem lift forte) */
-.hover-soft:hover{
-  transform:translateY(-1px);
+.hover-soft:hover {
+  transform: translateY(-1px);
 }
 
 /* =========================================================
-   5. IMAGE ANIMATIONS
+   3. IMAGE ANIMATIONS
 ========================================================= */
 
-.img-zoom{
-  overflow:hidden;
+.img-zoom {
+  overflow: hidden;
 }
 
-.img-zoom img{
+.img-zoom img {
   transition:
     transform var(--motion-slow) var(--ease-out),
     opacity var(--motion-base);
 }
 
-.img-zoom:hover img{
-  transform:scale(1.04);
-  opacity:.92;
+.img-zoom:hover img {
+  transform: scale(1.04);
+  opacity: .92;
 }
 
 /* =========================================================
-   6. FADE SYSTEM (UI ELEMENTS)
+   4. FADE SYSTEM
 ========================================================= */
 
-.fade-in{
-  opacity:0;
-  animation:fadeIn var(--motion-slow) var(--ease-out) forwards;
+.fade-in {
+  opacity: 0;
+  animation: fadeIn var(--motion-slow) var(--ease-out) forwards;
 }
 
-@keyframes fadeIn{
-  from{ opacity:0; }
-  to{ opacity:1; }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* =========================================================
-   7. SLIDE SYSTEM (HORIZONTAL UX)
+   5. SLIDE SYSTEM
 ========================================================= */
 
-.slide-in-left{
-  opacity:0;
-  transform:translateX(-20px);
-  animation:slideInLeft var(--motion-slow) var(--ease-out) forwards;
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInLeft var(--motion-slow) var(--ease-out) forwards;
 }
 
-.slide-in-right{
-  opacity:0;
-  transform:translateX(20px);
-  animation:slideInRight var(--motion-slow) var(--ease-out) forwards;
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: slideInRight var(--motion-slow) var(--ease-out) forwards;
 }
 
-@keyframes slideInLeft{
-  to{
-    opacity:1;
-    transform:none;
-  }
+@keyframes slideInLeft {
+  to { opacity: 1; transform: none; }
 }
 
-@keyframes slideInRight{
-  to{
-    opacity:1;
-    transform:none;
-  }
+@keyframes slideInRight {
+  to { opacity: 1; transform: none; }
 }
 
 /* =========================================================
-   8. BUTTON FEEDBACK (MICRO INTERACTION)
+   6. MENU / MODAL MOTION
 ========================================================= */
 
-.button{
-  transition:
-    transform var(--motion-base) var(--ease-out),
-    background var(--motion-base) var(--ease-out),
-    border-color var(--motion-base) var(--ease-out);
-}
-
-.button:active{
-  transform:translateY(0);
-}
-
-.button:hover{
-  transform:translateY(-2px);
-}
-
-/* =========================================================
-   9. MENU / MODAL MOTION
-========================================================= */
-
-.motion-fade{
-  opacity:0;
-  transform:translateY(-10px);
+.motion-fade {
+  opacity: 0;
+  transform: translateY(-10px);
   transition:
     opacity var(--motion-base) var(--ease-out),
     transform var(--motion-base) var(--ease-out);
 }
 
-.motion-fade.is-open{
-  opacity:1;
-  transform:none;
-}
-
-/* =========================================================
-   10. PERFORMANCE SAFETY
-========================================================= */
-
-@media (prefers-reduced-motion: reduce){
-  *{
-    animation:none !important;
-    transition:none !important;
-    scroll-behavior:auto !important;
-  }
+.motion-fade.is-open {
+  opacity: 1;
+  transform: none;
 }

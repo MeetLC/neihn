@@ -1,183 +1,127 @@
 /* =========================================================
-   NEIHN DESIGN SYSTEM — ANIMATIONS
-   Motion System (Subtle, Performant, Controlled)
+   NEIHN DESIGN SYSTEM — BUTTONS
+   Interactive Action Elements
 ========================================================= */
 
 /* =========================================================
-   1. GLOBAL PRINCIPLE
+   PRIMARY
 ========================================================= */
 
-/*
-Regra do sistema:
-- nada exagerado
-- tudo suave
-- sem distração
-- foco em percepção de qualidade
-*/
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-/* =========================================================
-   2. BASE TRANSITIONS
-========================================================= */
+  padding: 1rem 1.5rem;
 
-:root{
-  --ease-out:cubic-bezier(.2,.6,.2,1);
-  --ease-in:cubic-bezier(.4,0,1,1);
-  --ease-standard:ease;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
 
-  --motion-fast:.2s;
-  --motion-base:.35s;
-  --motion-slow:.6s;
-}
+  letter-spacing: .14em;
+  text-transform: uppercase;
 
-/* =========================================================
-   3. REVEAL SYSTEM (SCROLL ANIMATION)
-========================================================= */
+  color: var(--color-text);
 
-.reveal{
-  opacity:0;
-  transform:translateY(24px);
+  background: transparent;
+
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+
+  text-decoration: none;
+
+  cursor: pointer;
+
   transition:
-    opacity var(--motion-slow) var(--ease-out),
-    transform var(--motion-slow) var(--ease-out);
-  will-change:opacity, transform;
+    transform var(--transition-base),
+    background var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base);
 }
 
-.reveal.is-visible{
-  opacity:1;
-  transform:none;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--color-gold);
+  color: #0a0a0a;
+  border-color: var(--color-gold);
 }
 
-/* variação leve (para hero e títulos) */
-.reveal--soft{
-  transform:translateY(12px);
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
 }
 
 /* =========================================================
-   4. HOVER MOTION SYSTEM
+   SECONDARY
 ========================================================= */
 
-.hover-lift{
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  color: var(--color-text-muted);
+
+  text-decoration: none;
+
   transition:
-    transform var(--motion-base) var(--ease-out),
-    box-shadow var(--motion-base) var(--ease-out);
+    color var(--transition-base),
+    transform var(--transition-base);
 }
 
-.hover-lift:hover{
-  transform:translateY(-3px);
+.btn-secondary:hover {
+  color: var(--color-text);
+  transform: translateX(2px);
 }
 
-/* hover suave (sem lift forte) */
-.hover-soft:hover{
-  transform:translateY(-1px);
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-border-strong);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 /* =========================================================
-   5. IMAGE ANIMATIONS
+   SMALL (modal, etc)
 ========================================================= */
 
-.img-zoom{
-  overflow:hidden;
-}
+.btn-small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-.img-zoom img{
+  padding: .6rem 1.2rem;
+
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  color: var(--color-text);
+
+  background: transparent;
+
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+
   transition:
-    transform var(--motion-slow) var(--ease-out),
-    opacity var(--motion-base);
+    transform var(--transition-base),
+    background var(--transition-base),
+    border-color var(--transition-base);
 }
 
-.img-zoom:hover img{
-  transform:scale(1.04);
-  opacity:.92;
-}
-
-/* =========================================================
-   6. FADE SYSTEM (UI ELEMENTS)
-========================================================= */
-
-.fade-in{
-  opacity:0;
-  animation:fadeIn var(--motion-slow) var(--ease-out) forwards;
-}
-
-@keyframes fadeIn{
-  from{ opacity:0; }
-  to{ opacity:1; }
-}
-
-/* =========================================================
-   7. SLIDE SYSTEM (HORIZONTAL UX)
-========================================================= */
-
-.slide-in-left{
-  opacity:0;
-  transform:translateX(-20px);
-  animation:slideInLeft var(--motion-slow) var(--ease-out) forwards;
-}
-
-.slide-in-right{
-  opacity:0;
-  transform:translateX(20px);
-  animation:slideInRight var(--motion-slow) var(--ease-out) forwards;
-}
-
-@keyframes slideInLeft{
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-@keyframes slideInRight{
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-/* =========================================================
-   8. BUTTON FEEDBACK (MICRO INTERACTION)
-========================================================= */
-
-.button{
-  transition:
-    transform var(--motion-base) var(--ease-out),
-    background var(--motion-base) var(--ease-out),
-    border-color var(--motion-base) var(--ease-out);
-}
-
-.button:active{
-  transform:translateY(0);
-}
-
-.button:hover{
-  transform:translateY(-2px);
-}
-
-/* =========================================================
-   9. MENU / MODAL MOTION
-========================================================= */
-
-.motion-fade{
-  opacity:0;
-  transform:translateY(-10px);
-  transition:
-    opacity var(--motion-base) var(--ease-out),
-    transform var(--motion-base) var(--ease-out);
-}
-
-.motion-fade.is-open{
-  opacity:1;
-  transform:none;
-}
-
-/* =========================================================
-   10. PERFORMANCE SAFETY
-========================================================= */
-
-@media (prefers-reduced-motion: reduce){
-  *{
-    animation:none !important;
-    transition:none !important;
-    scroll-behavior:auto !important;
-  }
+.btn-small:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.05);
+  border-color: var(--color-gold);
 }

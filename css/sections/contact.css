@@ -1,245 +1,160 @@
 /* =========================================================
    CONTACT SECTION — NEIHN DESIGN SYSTEM
-   Conversion-Focused Layout (CLASSES ORIGINAIS MANTIDAS)
 ========================================================= */
 
 /* =========================================================
    SECTION BASE
 ========================================================= */
 
-.contact-section{
-  padding:clamp(4rem,7vw,7rem) clamp(2rem,6vw,7rem);
-  position:relative;
-  overflow:hidden;
+.contact-section {
+  padding: clamp(4rem,7vw,7rem) clamp(2rem,6vw,7rem);
+  position: relative;
+  overflow: hidden;
 
-  background:var(--color-bg, #0a0a0a);
-  color:var(--color-text);
+  background: var(--color-bg, #0a0a0a);
+  color: var(--color-text);
 
-  display:grid;
+  display: grid;
   grid-template-columns:
     minmax(320px, 1fr)
     minmax(420px, 680px);
 }
 
-.contact-section::after{
-  content:"NEIHN";
+.contact-section::after {
+  content: "NEIHN";
 
-  position:absolute;
-  right:-2rem;
-  bottom:-5rem;
+  position: absolute;
+  right: -2rem;
+  bottom: -5rem;
 
-  font-size:22vw;
-  font-weight:700;
+  font-size: 22vw;
+  font-weight: 700;
 
-  color:rgba(255,255,255,.02);
+  color: rgba(255,255,255,.02);
 
-  pointer-events:none;
+  pointer-events: none;
 }
 
 /* =========================================================
    HEADER / INTRO
 ========================================================= */
 
-.contact-top{
-  max-width:900px;
-
-  margin-bottom:0;
+.contact-top {
+  max-width: 900px;
+  margin-bottom: 0;
 }
 
-.contact-top h2{
-  margin:0;
-  max-width:8ch;
+.contact-top h2 {
+  margin: 0;
+  max-width: 8ch;
 
-  font-family:var(--font-title);
+  font-family: var(--font-title);
 
-  font-size:clamp(2.8rem,5vw,4.5rem);
-  line-height:1;
+  font-size: clamp(2.8rem,5vw,4.5rem);
+  line-height: 1;
 
-  letter-spacing:-.04em;
+  letter-spacing: -.04em;
 
-  color:var(--color-text);
+  color: var(--color-text);
 }
 
-.contact-top p{
-  margin-top:1.5rem;
+.contact-top p {
+  margin-top: 1.5rem;
+  max-width: 520px;
 
-  max-width:520px;
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: 1.9;
 
-  font-family:var(--font-body);
-  font-size:var(--text-md);
-  line-height:1.9;
-
-  color:var(--color-text-muted);
+  color: var(--color-text-muted);
 }
 
 /* =========================================================
    LAYOUT PRINCIPAL
 ========================================================= */
 
-.contact-layout{
-  display:contents;
-
+.contact-layout {
+  display: contents;
 }
 
 /* =========================================================
    SIDEBAR INFO
 ========================================================= */
 
-.contact-info{
-  display:flex;
-  flex-direction:column;
-  gap:2rem;
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* blocos informativos */
-.contact-block span{
-  display:block;
+.contact-block span {
+  display: block;
+  margin-bottom: .6rem;
 
-  margin-bottom:.6rem;
+  font-family: var(--font-ui);
+  font-size: .68rem;
 
-  font-family:var(--font-ui);
-  font-size:.68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 
-  letter-spacing:.14em;
-  text-transform:uppercase;
-
-  color:var(--color-text-soft);
-  opacity:.72;
+  color: var(--color-text-soft);
+  opacity: .72;
 }
 
 .contact-block a,
-.contact-block p{
-  margin:0;
+.contact-block p {
+  margin: 0;
 
-  font-family:var(--font-body);
-  font-size:var(--text-md);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
 
-  color:var(--color-text);
+  color: var(--color-text);
 
-  text-decoration:none;
+  text-decoration: none;
 }
 
-/* hover leve em links */
-.contact-block a:hover{
-  color:var(--color-text-muted);
+.contact-block a:hover {
+  color: var(--color-text-muted);
 }
 
 /* =========================================================
-   FORM
+   FORM POSITION (layout only — styles in forms.css)
 ========================================================= */
 
-.contact-form{
-  display:flex;
-  flex-direction:column;
-  grid-column:2;
-  grid-row:1/3;
-
-  gap:2rem;
-}
-
-/* grupo de campos */
-.form-group{
-  display:flex;
-  flex-direction:column;
-  gap:.75rem;
-}
-
-/* labels */
-.form-group label{
-  font-family:var(--font-ui);
-  font-size: .82rem;
-
-  letter-spacing:.14em;
-  text-transform:uppercase;
-
-  color:var(--color-text-soft);
-  opacity:.72;
-}
-
-/* inputs */
-.form-group input,
-.form-group textarea{
-  width:100%;
-
-  padding:1.4rem 1rem;
-
-  font-family:var(--font-body);
-  font-size:1rem;
-
-  color:var(--color-text);
-
-  background:rgba(255,255,255,.03);
-
-  border:none;
-  border-bottom:1px solid var(--color-border-strong);
-  border-radius:var(--radius-sm);
-
-  transition:
-    border-color var(--transition-base),
-    opacity var(--transition-base);
-}
-
-/* placeholder */
-.form-group input::placeholder,
-.form-group textarea::placeholder{
-  color:rgba(255,255,255,.35);
-}
-
-/* hover */
-.form-group input:hover,
-.form-group textarea:hover{
-  border-color: rgba(255,255,255,.35);
-  background: rgba(255,255,255,.05);;
-}
-
-/* focus */
-.form-group input:focus,
-.form-group textarea:focus{
-  outline:none;
-
-  border-bottom-color:var(--color-gold);
-  background: rgba(255,255,255,.04);
-  box-shadow: 0 0 0 3px rgba(245,179,0,.12);
-}
-
-/* acessibilidade focus */
-.form-group input:focus-visible,
-.form-group textarea:focus-visible{
-  outline:none;
-}
-
-/* textarea */
-.form-group textarea{
-  min-height:140px;
-  resize:none;
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  gap: 2rem;
 }
 
 /* =========================================================
    BOTÃO
 ========================================================= */
 
-.contact-button{
-  width:max-content;
-  min-height:54px;
+.contact-button {
+  width: max-content;
+  min-height: 54px;
 
-  margin-top:1rem;
+  margin-top: 1rem;
 
-  padding:1rem 2rem;
+  padding: 1rem 2rem;
 
-  font-family:var(--font-ui);
-  font-size:var(--text-sm);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
 
-  letter-spacing:.14em;
-  text-transform:uppercase;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 
-  color:var(--color-text);
+  color: var(--color-text);
 
-  background:transparent;
+  background: transparent;
 
-  border:1px solid var(--color-gold);
-  border-radius:var(--radius-sm);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-sm);
 
-  cursor:pointer;
+  cursor: pointer;
 
   transition:
     transform var(--transition-base),
@@ -248,58 +163,43 @@
     color var(--transition-base);
 }
 
-.contact-button:hover{
-  transform:translateY(-2px);
-
-  background:var(--color-gold);
+.contact-button:hover {
+  transform: translateY(-2px);
+  background: var(--color-gold);
   color: #0a0a0a;
-
-  border-color:var(--color-gold);
+  border-color: var(--color-gold);
 }
 
-.contact-button:active{
-  transform:translateY(0);
-}
-
-/* =========================================================
-   STATUS MESSAGE
-========================================================= */
-
-#formStatus{
-  margin-top:1rem;
-
-  font-family:var(--font-ui);
-  font-size:var(--text-sm);
-
-  color:var(--color-text-soft);
+.contact-button:active {
+  transform: translateY(0);
 }
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media (max-width:980px){
+@media (max-width: 980px) {
 
-  .contact-section{
-    display:block;
+  .contact-section {
+    display: block;
   }
 
-  .contact-layout{
-    grid-template-columns:1fr;
+  .contact-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
 
-  .contact-top h2{
-    font-size:clamp(2.5rem,10vw,4rem);
+  .contact-form {
+    grid-column: unset;
+    grid-row: unset;
   }
-}
 
-/* =========================================================
-   ACCESSIBILITY / MOTION
-========================================================= */
+  .contact-top {
+    margin-bottom: 2rem;
+  }
 
-@media (prefers-reduced-motion: reduce){
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+  .contact-top h2 {
+    font-size: clamp(2.5rem,10vw,4rem);
   }
 }
