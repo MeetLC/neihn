@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 const root = process.cwd();
-const htmlFiles = ["index.html"];
 
 function escapeRegExp(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -13,10 +12,10 @@ function fileVersion(absPath) {
   return String(Math.floor(stat.mtimeMs));
 }
 
-function bumpInHtml(html, relPath, version) {
+function bumpVersionInText(text, relPath, version) {
   const escaped = escapeRegExp(relPath);
-  const rx = new RegExp(`(${escaped})(?:\\?v=[^"'>\\s]+)?`, "g");
-  return html.replace(rx, `$1?v=${version}`);
+  const rx = new RegExp(`(${escaped})(?:\\?v=[^"'>\\s)]+)?`, "g");
+  return text.replace(rx, `$1?v=${version}`);
 }
 
 function getImportedCssFiles(mainCssAbs) {
@@ -32,10 +31,28 @@ function getImportedCssFiles(mainCssAbs) {
   return imports;
 }
 
+function rewriteCssImports(mainCssAbs) {
+  let css = fs.readFileSync(mainCssAbs, "utf8");
+  const imports = getImportedCssFiles(mainCssAbs);
+
+  for (const rel of imports) {
+    const cleanRel = rel.replace(/^\.\/?/, "");
+    const abs = path.join(path.dirname(mainCssAbs), cleanRel);
+    if (!fs.existsSync(abs)) continue;
+
+    const v = fileVersion(abs);
+    const escaped = escapeRegExp(rel);
+    const rx = new RegExp(`(@import\\s+url\\(["']?)${escaped}(?:\\?v=[^"']*)?(["']?\\))`, "g");
+    css = css.replace(rx, `$1${rel}?v=${v}$2`);
+  }
+
+  fs.writeFileSync(mainCssAbs, css, "utf8");
+}
+
 const assets = [
   "css/main.css",
   "js/app.js",
-  "img/project1-full.webp",
+  "img/project1-full.webp"
 ];
 
 const versions = {};
@@ -47,30 +64,19 @@ for (const rel of assets) {
   }
 }
 
+const htmlPath = path.join(root, "index.html");
+let html = fs.readFileSync(htmlPath, "utf8");
+
+// atualiza HTML
+for (const [rel, v] of Object.entries(versions)) {
+  html = bumpVersionInText(html, rel, v);
+}
+
+// atualiza main.css com os imports versionados
 const mainCssAbs = path.join(root, "css/main.css");
 if (fs.existsSync(mainCssAbs)) {
-  const importedCss = getImportedCssFiles(mainCssAbs);
-  for (const rel of importedCss) {
-    const cleanRel = rel.replace(/^\.\/?/, "");
-    const abs = path.join(root, "css", cleanRel);
-    if (fs.existsSync(abs)) {
-      versions[`css/${cleanRel}`] = fileVersion(abs);
-    }
-  }
+  rewriteCssImports(mainCssAbs);
 }
 
-for (const htmlName of htmlFiles) {
-  const htmlPath = path.join(root, htmlName);
-  if (!fs.existsSync(htmlPath)) continue;
-
-  let html = fs.readFileSync(htmlPath, "utf8");
-
-  for (const [rel, v] of Object.entries(versions)) {
-    html = bumpInHtml(html, rel, v);
-  }
-
-  fs.writeFileSync(htmlPath, html, "utf8");
-  console.log(`✅ Atualizado ${htmlName}`);
-}
-
-console.log("Versões aplicadas:", versions);
+fs.writeFileSync(htmlPath, html, "utf8");
+console.log("✅ Versionamento atualizado com sucesso.");

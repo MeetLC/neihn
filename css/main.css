@@ -2,41 +2,41 @@
    CORE
 ========================================================= */
 
-@import url("./core/reset.css");
-@import url("./core/tokens.css");
-@import url("./core/typography.css");
-@import url("./core/animations.css");
-@import url("./core/utilities.css");
+@import url("./core/reset.css?v=1779940330057");
+@import url("./core/tokens.css?v=1782679622952");
+@import url("./core/typography.css?v=1782605842326");
+@import url("./core/animations.css?v=1782679612225");
+@import url("./core/utilities.css?v=1782679635309");
 
 /* =========================================================
    LAYOUT
 ========================================================= */
 
-@import url("./layout/grid.css");
+@import url("./layout/grid.css?v=1782679449684");
 
 /* =========================================================
    COMPONENTS
 ========================================================= */
 
-@import url("./components/buttons.css");
-@import url("./components/navbar.css");
-@import url("./components/cards.css");
-@import url("./components/forms.css");
-@import url("./components/modal.css");
-@import url("./components/lightbox.css");
+@import url("./components/buttons.css?v=1782679149152");
+@import url("./components/navbar.css?v=1779943478056");
+@import url("./components/cards.css?v=1779940583873");
+@import url("./components/forms.css?v=1779940674873");
+@import url("./components/modal.css?v=1779940820010");
+@import url("./components/lightbox.css?v=1779990476309");
 
 /* =========================================================
    SECTIONS
 ========================================================= */
 
-@import url("./sections/hero.css");
-@import url("./sections/about.css");
-@import url("./sections/services.css");
-@import url("./sections/portfolio.css");
-@import url("./sections/contact.css");
+@import url("./sections/hero.css?v=1782679474172");
+@import url("./sections/about.css?v=1782679537002");
+@import url("./sections/services.css?v=1782679479760");
+@import url("./sections/portfolio.css?v=1782675600373");
+@import url("./sections/contact.css?v=1782679807924");
 
 /* =========================================================
    GLOBAL LAYOUT PARTS
 ========================================================= */
 
-@import url("./layout/footer.css");
+@import url("./layout/footer.css?v=1782679831339");
