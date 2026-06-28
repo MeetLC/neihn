@@ -10,8 +10,8 @@
 .portfolio-section{
   padding:clamp(7rem,10vw,10rem) clamp(2rem,6vw,7rem);
 
-  background:var(--color-bg-light, #f5f1ea);
-  color:var(--color-text-dark, #111);
+  background:var(--color-bg);
+  color:var(--color-text);
 }
 
 /* =========================================================
@@ -34,7 +34,7 @@
 
   letter-spacing:-.05em;
 
-  color:var(--color-text-dark);
+  color:var(--color-text);
 }
 
 /* =========================================================
@@ -141,7 +141,7 @@
 
   letter-spacing:-.03em;
 
-  color:var(--color-text-dark);
+  color:var(--color-text);
 }
 
 /* descrição */
@@ -151,7 +151,7 @@
   font-family:var(--font-body);
   font-size:.92rem;
 
-  color:rgba(0,0,0,.6);
+  color:var(--color-text-muted);
 }
 
 /* index visual */
@@ -160,7 +160,7 @@
 
   font-size:1rem;
 
-  color:rgba(0,0,0,.55);
+  color:var(--color-text-soft);
   font-weight:500;
 }
 
@@ -203,7 +203,8 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce){
-  *{
-    transition:none !important;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -289,6 +289,18 @@ function untrapFocus(container) {
   });
 })();
 
+/* ===== SCROLL REVEAL ===== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
 /* 
 ██████████████████████████████████████████████
 [ END_LOG :: NEIHN_v2025.11 ]

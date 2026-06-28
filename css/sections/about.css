@@ -80,6 +80,19 @@
   border: 0;
 }
 
+.about-kicker {
+  display: inline-block;
+
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  color: var(--color-gold);
+}
+
 /* =========================================================
    TEXTO EM DUAS COLUNAS
 ========================================================= */
