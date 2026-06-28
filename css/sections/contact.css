@@ -147,7 +147,7 @@
 /* labels */
 .form-group label{
   font-family:var(--font-ui);
-  font: size 0.68em;
+  font: size 0.82rem;
 
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -161,18 +161,18 @@
 .form-group textarea{
   width:100%;
 
-  padding:1.2rem 0;
+  padding:1.4rem 1rem;
 
   font-family:var(--font-body);
   font-size:1rem;;
 
   color:var(--color-text);
 
-  background:transparent;
+  background:rgba(255,255,255,.03);
 
   border:none;
-  border-bottom:1px solid var(--color-border);
-  border-radius:0;
+  border-bottom:1px solid var(--color-border-strong);
+  border-radius:var(--radius-sm);
 
   transition:
     border-color var(--transition-base),
@@ -188,7 +188,8 @@
 /* hover */
 .form-group input:hover,
 .form-group textarea:hover{
-  border-bottom-color:rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.35);
+  background: rgba(255,255,255,.05);;
 }
 
 /* focus */
@@ -197,13 +198,14 @@
   outline:none;
 
   border-bottom-color:var(--color-border-strong);
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 0 0 3px rgba(245,179,0,.12);
 }
 
 /* acessibilidade focus */
 .form-group input:focus-visible,
 .form-group textarea:focus-visible{
-  outline:2px solid var(--color-border-strong);
-  outline-offset:4px;
+  outline:none;
 }
 
 /* textarea */
@@ -222,7 +224,7 @@
 
   margin-top:1rem;
 
-  padding:1rem 1.6rem;
+  padding:1rem 2rem;
   padding-inline: 2rem;
 
   font-family:var(--font-ui);
@@ -235,7 +237,7 @@
 
   background:transparent;
 
-  border:1px solid var(--color-border);
+  border:1px solid var(--color-gold);
   border-radius:var(--radius-sm);
 
   cursor:pointer;
@@ -244,14 +246,16 @@
     transform var(--transition-base),
     background var(--transition-base),
     border-color var(--transition-base);
+    color var(--transition-base);
 }
 
 .contact-button:hover{
   transform:translateY(-2px);
 
-  background:rgba(255,255,255,.03);
+  background:var(--color-gold);
+  color: #0a0a0a;
 
-  border-color:var(--color-border-strong);
+  border-color:var(--color-gold);
 }
 
 .contact-button:active{
@@ -291,7 +295,8 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce){
-  *{
-    transition:none !important;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

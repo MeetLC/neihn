@@ -10,7 +10,7 @@
 .services-section{
   padding:clamp(7rem,10vw,10rem) clamp(2rem,6vw,7rem);
 
-  background:var(--color-bg-light, #f5f1ea);
+  background:var(--color-surface, #111111);
   color:var(--color-text-dark, #111);
 }
 
@@ -36,7 +36,7 @@
   letter-spacing:.18em;
   text-transform:uppercase;
 
-  color:rgba(0,0,0,.55);
+  color:var(--color-gold);
   font-weight:500;
 }
 
@@ -51,7 +51,7 @@
 
   letter-spacing:-.05em;
 
-  color:var(--color-text-dark);
+  color:var(--color-text);
 
   max-width:900px;
 }
@@ -77,7 +77,7 @@
 
   padding-top:2rem;
 
-  border-top:1px solid rgba(0,0,0,.12);
+  border-top:1px solid var(--color-border-strong);
 
   transition:transform .35s ease;
 }
@@ -118,7 +118,7 @@
 
   letter-spacing:-.03em;
 
-  color:var(--color-text-dark);
+  color:var(--color-text);
 }
 
 /* =========================================================
@@ -133,7 +133,7 @@
 
   line-height:1.9;
 
-  color:rgba(0,0,0,.65);
+  color:var(--color-text-muted);
 }
 
 /* =========================================================
@@ -150,12 +150,12 @@
 .service-item li{
   padding:.6rem 0;
 
-  border-bottom:1px solid rgba(0,0,0,.06);
+  border-bottom:1px solid var(--color-border);
 
   font-family:var(--font-body);
   font-size:.92rem;
 
-  color:rgba(0,0,0,.65);
+  color:var(--color-text-muted);
 }
 
 /* remove última linha visual */
@@ -183,7 +183,8 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce){
-  *{
-    transition:none !important;
+  **::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
