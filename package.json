@@ -5,8 +5,8 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "build": "node scripts/bump-version.js",
-    "precommit": "npm run build"
+    "version": "node scripts/bump-version.js",
+    "precommit": "npm run version"
   },
   "repository": {
     "type": "git",
