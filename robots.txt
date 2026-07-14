@@ -1,3 +1,3 @@
 User-agent:*
 Allow:/
-Sitemap:https://neihn.pages.dev/sitemap.xml
+Sitemap:https://www.neihn.com/sitemap.xml
