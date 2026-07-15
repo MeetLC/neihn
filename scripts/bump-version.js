@@ -52,7 +52,9 @@ function rewriteCssImports(mainCssAbs) {
 const assets = [
   "css/main.css",
   "js/app.js",
-  "img/project1-full.webp"
+  "img/project1-full.webp",
+  "img/project1.webp",
+  "img/neihn-preview-1200x630.webp",
 ];
 
 const versions = {};
